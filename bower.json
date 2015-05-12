@@ -1,0 +1,23 @@
+{
+  "name": "occi-board",
+  "version": "0.1.0",
+  "description": "Occiware dashboard",
+  "main": "app.js",
+  "authors": [
+    "Daniel Coquette"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "fontawesome": "~4.3.0",
+    "modernizr": "~2.8.3",
+    "jstz-detect": "~1.0.5"
+  }
+}
