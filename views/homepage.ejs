@@ -1,3 +1,57 @@
+<div id="dashboard-header" class="dashboard-header">
+  <table class="dashboard-header">
+
+  <tr>
+    <td id="dashboard-buttons" class="button" rowspan=2>
+    <div id="dashboard-refresh-button" class="dashboard-radio" rel="tooltip" title="<%= __('Refresh') %>">
+      <i class="fa fa-refresh"></i>
+    </div>
+
+    <div id="dashboard-menu-trigger-button" class="dashboard-menu-trigger dashboard-radio" rel="tooltip" title="<%= __('Manage widgets') %>">
+      <i class="fa fa-bars"></i>
+    </div>
+    </td>
+
+    <td class="brand" rowspan=2>
+    <img class="brand" src="/themes/<%= theme %>/res/brand.png">
+    </td>
+
+    <td class="connection-details">
+    <div id="dashboard-logout-button" class="color-inverse">
+      <i class="fa fa-user fa-2x color-inverse"></i>
+    </div>
+    <div class="connection-identifier">
+      <h4 id="connection-identifier" class="font-header-title"><% if (user) { __('Hello %s %s (%s).', user.firstname || '', user.lastname || '', user.login); } %></h4>
+      <p id="connection-identifier-details" class="font-header"></p>
+    </div>
+    </td>
+  </tr>
+
+  <tr>
+    <td class="tabs">
+    <div class="btn-group btn-group-xs">
+      <button data-target="#dashboard-tab" type="button" class="btn btn-default selected"><%= __('Widgets') %></button>
+    </div>
+    </td>
+  </tr>
+
+  </table>
+</div>
+
 <div class="container">
-  <i class="fa fa-2x fa-anchor"></i>
+
+  <div class="tab-content">
+  <div class="tab-pane active" id="dashboard-tab">
+
+    <div id="tile-grid" class="grid widget-scrollbar">
+    <div id="tile-container">
+      <div class="gridster dashboard-margins">
+      <ul></ul>
+      </div>
+    </div>
+    </div>
+
+  </div>
+  </div>
+
 </div>

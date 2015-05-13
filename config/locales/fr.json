@@ -1,4 +1,23 @@
 {
-	"Welcome": "Bienvenue",
-	"A brand new app.": "Une toute nouvelle application."
+	"currency-name": "Euro",
+	"currency-symbol": "€",
+	"currency-format-pos": "%v %s",
+	"currency-format-neg": "-%v %s",
+	"currency-format-zero": "%v %s",
+	"currency-format-pos-signed": "+%v %s",
+	"currency-format-neg-signed": "-%v %s",
+	"currency-format-zero-signed": "-",
+	"currency-decimal": ",",
+	"currency-thousand": ".",
+	"currency-precision": "3",
+	"number-decimal": ",",
+	"number-thousand": ".",
+	"number-precision": "0",
+	"To take full advantage of this application, you should use a more recent browser.": "To take full advantage of this application, you should use a more recent browser.",
+	"You must allow cookie for this application to work!": "You must allow cookie for this application to work!",
+	"Occi Dashboard": "Occi Dashboard",
+	"Refresh": "Actualiser",
+	"Hello %s %s (%s).": "Bonjour %s %s (%s).",
+	"Widgets": "Widgets",
+	"Manage widgets": "Gérer les widgets"
 }

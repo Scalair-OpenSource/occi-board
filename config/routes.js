@@ -33,7 +33,16 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': {
-    view: 'homepage'
+    view: 'homepage',
+    locals: {
+      minified: '.min',
+      theme: 'cs',
+      user: {
+        firstname: 'John',
+        lastname: 'Doe',
+        login: 'jdoe'
+      }
+    }
   }
 
   /***************************************************************************

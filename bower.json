@@ -18,6 +18,12 @@
     "jquery": "~2.1.4",
     "fontawesome": "~4.3.0",
     "modernizr": "~2.8.3",
-    "jstz-detect": "~1.0.5"
+    "jstz-detect": "~1.0.5",
+    "bootstrap": "~3.3.4",
+    "gridster": "~0.5.6",
+    "accountingjs": "~0.3.2",
+    "moment": "~2.10.3",
+    "moment-timezone": "~0.3.1",
+    "lodash": "~3.8.0"
   }
 }

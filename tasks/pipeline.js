@@ -27,22 +27,16 @@ var jsFilesToInject = [
   'js/dependencies/sails.io.js',
 
   // Dependencies like jQuery, or Angular are brought in here
+  'js/dependencies/moment.js',
+  'js/dependencies/moment-timezone.js',
   'js/dependencies/**/*.js',
-  // <script type="text/javascript" src="pnotify.core.js"></script>
-  // <script type="text/javascript" src="pnotify.buttons.js"></script>
-  // <script type="text/javascript" src="pnotify.confirm.js"></script>
-  // <script type="text/javascript" src="pnotify.nonblock.js"></script>
-  // <script type="text/javascript" src="pnotify.desktop.js"></script>
-  // <script type="text/javascript" src="pnotify.history.js"></script>
-  // <script type="text/javascript" src="pnotify.callbacks.js"></script>
-  // <script type="text/javascript" src="pnotify.reference.js"></script>
-
 
   // All of the rest of your client-side js files
   // will be injected here in no particular order.
   'js/internal/*.js',
   'js/init.js',
-  'js/**/*.js'
+  'js/tiles/*.js',
+  'js/*.js',
 ];
 
 

@@ -24,7 +24,7 @@ module.exports = function(grunt) {
 			// To use other sorts of templates, specify a regexp like the example below:
 			// options: {
 			//   templateSettings: {
-			//     interpolate: /\{\{(.+?)\}\}/g
+			//   interpolate: /\{\{(.+?)\}\}/g
 			//   }
 			// },
 

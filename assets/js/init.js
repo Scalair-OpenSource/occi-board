@@ -7,10 +7,10 @@
 /*global console:false*/
 
 /**
- * Namespace: $od
+ * Namespace: $OD
  * This namespace for Occiware Dashboard.
  */
-var $od = {};
+var $OD = {};
 
 /*
  * Init application libraries
