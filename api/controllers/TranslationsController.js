@@ -5,9 +5,8 @@
  * @help        :: See http://links.sailsjs.org/docs/controllers
  */
 
-/* global sails:false */
+/* global _:false */
 /* global FilesDirs:false */
-/* global ErrExcp:false */
 
 var path = require('path');
 

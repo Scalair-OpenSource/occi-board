@@ -3,7 +3,7 @@
  */
 
 /* global sails:false */
-/* global QbicLib:false */
+/* global ErrExcp:false */
 
 var fs = require('fs');
 var path = require('path');
@@ -31,6 +31,18 @@ module.exports = {
             sails.log.error('File not found: ' + filePath);
             return ErrExcp.create(e);
         }
+    },
+
+    saveJSON: function (data, filePath) {
+        try {
+            fs.writeFileSync(JSON.stringify(data), filePath, 'utf8');
+            return true;
+        }
+        catch (e) {
+            sails.log.error('File not saved: ' + filePath);
+            return ErrExcp.create(e);
+        }
+
     },
 
     /**

@@ -4,7 +4,14 @@
 
 /* global sails:false */
 
+var
+  LEVEL_WARNING = 'warning',
+  LEVEL_ERROR = 'error';
+
 module.exports = {
+
+  LEVEL_WARNING: LEVEL_WARNING,
+  LEVEL_ERROR: LEVEL_ERROR,
 
   /**
    * Create a pseudo exception object useful to return normalized errors.
@@ -21,10 +28,13 @@ module.exports = {
     var result;
 
     if (name instanceof Error) {
+      // Pretty exception
       result = {
         name: name.name,
+        code: name.code,
+        errno: name.errno,
         message: name.message,
-        level: 'error',
+        level: LEVEL_ERROR,
         htmlMessage: name.message
       };
     }
@@ -32,7 +42,8 @@ module.exports = {
       result = {
         name: name,
         message: message,
-        level: level || 'error',
+        code: LEVEL_ERROR,
+        level: level || LEVEL_ERROR,
         htmlMessage: htmlMessage || message
       };
     }
@@ -41,6 +52,11 @@ module.exports = {
       sails.log.error('[' + result.name + ']', result.message);
     }
 
-    return result;
+    return { error: result };
+  },
+
+  isError: function (data, exceptionName) {
+    return (data && data.error && data.error.level && [LEVEL_WARNING, LEVEL_ERROR].indexOf(data.error.level) >= 0) &&
+      (exceptionName === undefined || (data.error.code && data.error.code.toUpperCase() === exceptionName));
   }
 };
