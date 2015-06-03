@@ -1,0 +1,70 @@
+@import "../dashboard-common";
+
+.task-list {
+    font-family: "MyriadWebPro";
+    font-size: @FONT_SIZE_REGULAR;
+    height: 164px !important;
+    .overflow-hidden;
+}
+
+.task-list li {
+    border-bottom: 1px solid @COLOR_CLOUDSYSTEM_BLUE;
+    line-height: 28px !important;
+}
+
+.task-list li:last-child {
+    border-bottom: 0;
+}
+
+.task-item {
+    color: @COLOR_CLOUDSYSTEM_GRAY_INK;
+}
+
+.task-finished {
+    color: @COLOR_CLOUDSYSTEM_DISABLED !important;
+}
+
+.icon-finished {
+    font-family: "FontAwesome";
+    font-size: 125%;
+    cursor: pointer;
+}
+
+.icon-finished:before {
+    content: "\f10c";
+    color: lighten(@COLOR_CLOUDSYSTEM_TILE_BACKGROUND, 15%);
+}
+
+.icon-finished.task-finished:before {
+    content: "\f05d";
+    color: @COLOR_CLOUDSYSTEM_GREEN;
+}
+
+/*
+.task-list li:before {
+    font-family: "FontAwesome";
+    font-size: 125%;
+    content: "\f10c";
+    color: darken(@COLOR_CLOUDSYSTEM_TILE_BACKGROUND, 5%);
+}
+
+.task-list li.task-finished:before {
+    font-family: "FontAwesome";
+    font-size: 125%;
+    content: "\f05d";
+    color: @COLOR_CLOUDSYSTEM_GREEN;
+}
+*/
+
+.task-form {
+    margin: 8px;
+    font-family: "MyriadWebPro";
+}
+
+.task-form .btn-task-add {
+    background-color: @COLOR_CLOUDSYSTEM_GREEN;
+    font-size: @FONT_SIZE_HUGE;
+    padding: 2px 6px 2px 6px;
+    line-height: 23px;
+    margin-top: -2px;
+}

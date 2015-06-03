@@ -1,0 +1,110 @@
+@import "fonts";
+@import "colors";
+
+/*
+ * Prevent Bootstrap modal to shift and create a scrollbar when shown
+ */
+body.modal-open, .modal-open .navbar-fixed-top, .modal-open .navbar-fixed-bottom {
+    margin-right: 0 !important;
+    font-family: "Montserrat-Regular";
+    font-size: @FONT_SIZE_SMALL;
+}
+
+body {
+    background: @COLOR_BODY_BACKGROUND;
+    padding: 0;
+    margin: 0;
+    .font-body;
+}
+
+.modal {
+    overflow-y: auto !important;
+}
+
+/*
+ * Login page stylesheet
+ */
+html, body {
+    height: 100%;
+}
+
+body {
+    background: @COLOR_CLOUDSYSTEM_BLUE;
+}
+
+#login-curtain img.brand {
+    height: 100%;
+    width: 300px;
+}
+
+.login-panel {
+    padding: 0 16px;
+    color: @COLOR_WHITE;
+    width: 300px;
+    margin: 0 auto;
+}
+
+#login-form {
+    margin: 2em auto;
+}
+
+#login-form button {
+    margin: 16px 0;
+}
+
+#login-form checkbox {
+}
+
+.identifier {
+    background: @COLOR_WHITE url(/images/user.png) no-repeat left center;
+    padding-left: 32px;
+}
+
+#password {
+    background: @COLOR_WHITE url(/images/password.png) no-repeat left center;
+    padding-left: 32px;
+}
+
+#forgotten-password-mail {
+    background: @COLOR_WHITE url(/images/email.png) no-repeat left center;
+    padding-left: 32px;
+}
+
+.help-block {
+    color: darken(@COLOR_WHITE, 30%);
+}
+
+input[type=text], input[type=password] {
+    height: 48px !important;
+    font-size: 1.5em;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.input-top input {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.input-bottom input {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+a {
+    color: @COLOR_WHITE;
+}
+
+a:hover {
+    color: @COLOR_MANGO;
+}
+
+.footer-image {
+    margin-top: 16px;
+}

@@ -15,7 +15,7 @@
 // (if you're using LESS with the built-in default config, you'll want
 //  to change `assets/styles/importer.less` instead.)
 var cssFilesToInject = [
-  'styles/**/*.css'
+  // 'styles/**/*.css'
 ];
 
 
@@ -27,8 +27,14 @@ var jsFilesToInject = [
   'js/dependencies/sails.io.js',
 
   // Dependencies like jQuery, or Angular are brought in here
-  'js/dependencies/moment.js',
-  'js/dependencies/moment-timezone.js',
+  '/components/modernizr/modernizr.js',
+  '/components/jstz-detect/jstz.js',
+  '/components/lodash/lodash.js',
+  '/components/moment/moment.js',
+  '/components/moment-timezone/moment-timezone.js',
+  '/components/jquery/dist/jquery.js',
+  '/components/accountingjs/accounting.js',
+  '/components/*.js',
   'js/dependencies/**/*.js',
 
   // All of the rest of your client-side js files

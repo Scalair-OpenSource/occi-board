@@ -1,0 +1,91 @@
+@import "../dashboard-common";
+
+.alarm-item-block {
+    display: inline-block;
+    margin-right: 4px;
+}
+
+.alarm-item .media-body {
+    font-family: "MyriadWebPro";
+    font-size: @FONT_SIZE_SMALL;
+}
+
+.alarm-item img {
+    width: 32px;
+    padding-left: 2px;
+    .reflection-below();
+}
+
+li.alarm-item {
+    border-bottom: 1px solid @COLOR_CLOUDSYSTEM_BLUE;
+}
+
+li.alarm-item div.ellipsis-table {
+    border: 0;
+    font-size: @FONT_SIZE_SMALL;
+}
+
+li.alarm-item div.ellipsis-cell.cell-img {
+    width: 34px;
+}
+
+li.alarm-item div.ellipsis-cell.cell-duration {
+    width: 120px !important;
+    text-align: right;
+    padding-right: 4px;
+}
+
+.alarm-item.media {
+    border-bottom: 1px solid @COLOR_CLOUDSYSTEM_BLUE;
+    padding: 4px 0;
+    margin: 0 !important;
+}
+
+.alarm-item.media:first-child {
+    border-top: 0 !important;
+    padding: 4px 0;
+}
+
+.alarm-item .media-heading {
+    font-family: 'MontSerrat-Regular';
+    font-size: @FONT_SIZE_SMALL;
+}
+
+.alarm-item .duration, .alarm-item .ip {
+    font-weight: bold;
+/*
+    margin: 0 4px;
+*/
+}
+
+img.status-flag {
+    width: 16px;
+}
+
+.service-state-down, .host-state-down {
+    color: @COLOR_WHITE;
+    background-color: #333333;
+}
+
+.service-state-critical, .host-state-critical {
+    color: @COLOR_WHITE;
+    background-color: #fd373d;
+}
+
+.service-state-warning, .host-state-warning {
+    color: @COLOR_BLACK;
+    background-color: #ff9038;
+}
+
+.service-state-unknown, .host-state-unknown {
+    color: @COLOR_WHITE;
+    background-color: #333388;
+}
+
+.alarm-counter {
+    font-family: 'MontSerrat-Regular';
+    font-size: @FONT_SIZE_BIG;
+    padding: 2px 4px;
+    margin: 0 6px;
+    border-radius: @FONT_SIZE_BIG;
+}

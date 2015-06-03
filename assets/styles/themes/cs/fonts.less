@@ -1,0 +1,123 @@
+@import 'colors.less';
+
+@FONT_SIZE_TINY: 9px;
+@FONT_SIZE_SMALL: 11px;
+@FONT_SIZE_REGULAR: 13px;
+@FONT_SIZE_BIG: 15px;
+@FONT_SIZE_HUGE: 17px;
+
+@FONT_SIZE_TITLE: @FONT_SIZE_BIG;
+
+@DELAY_TIME: 0.5s;
+@DELAY_TIME_QUICK: 0.25s;
+@WIDTH_CALENDAR: 260px;
+@WIDTH_CALENDAR_DAYS: 260px;
+@WIDTH_DAY_NUMBER: 36px;
+@HEIGHT_CALENDAR_EVENT: 260px;
+
+/* ----------------------------------------
+ * Fonts
+ */
+@font-face {
+    font-family: "Montserrat-Regular";
+    src: local("Montserrat-Regular"), url("/fonts/Montserrat-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Montserrat-Bold";
+    src: local("Montserrat-Bold"), url("/fonts/Montserrat-Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "MyriadWebPro";
+    src: local("MyriadWebPro"), url("/fonts/MyriadWebPro.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "MyriadWebPro-Bold";
+    src: local("MyriadWebPro-Bold"), url("/fonts/MyriadWebPro-Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+.font-body {
+    font-family: "Montserrat-Regular";
+    font-size: @FONT_SIZE_SMALL;
+    color: @COLOR_BODY_FOREGROUND;
+}
+
+.font-legend {
+    font-family: "Montserrat-Regular";
+    font-size: @FONT_SIZE_BIG;
+    color: @COLOR_CLOUDSYSTEM_BLUE;
+}
+
+.font-header-text {
+    font-family: "MyriadWebPro";
+    font-size: @FONT_SIZE_TINY;
+    color: @COLOR_HEADER_FOREGROUND;
+}
+
+.font-header-title {
+    font-family: "MyriadWebPro";
+    font-size: @FONT_SIZE_TINY;
+    font-weight: bold;
+    color: @COLOR_HEADER_FOREGROUND;
+    margin: 0;
+}
+
+.font-header-link {
+    font-family: "MyriadWebPro";
+    font-size: @FONT_SIZE_SMALL;
+    color: @COLOR_HEADER_FOREGROUND;
+}
+
+.font-currency, .font-percent {
+    font-family: "Mono", "Courier New";
+    font-size: @FONT_SIZE_REGULAR;
+}
+
+.font-currency-euro-after:after {
+    font-size: @FONT_SIZE_REGULAR;
+    content: "€";
+    padding-left: 4px;
+}
+
+.font-currency-euro-before:before {
+    font-size: @FONT_SIZE_REGULAR;
+    content: "€";
+    padding-right: 4px;
+}
+
+.font-currency-USD:before {
+    font-size: @FONT_SIZE_REGULAR;
+    content: "$";
+    padding-right: 4px;
+}
+
+.font-percent-after:after {
+    font-size: @FONT_SIZE_REGULAR;
+    content: "%";
+    padding-left: 4px;
+}
+
+.font-percent-before:before {
+    font-size: @FONT_SIZE_REGULAR;
+    content: "%";
+    padding-right: 4px;
+}
+
+.small-text {
+    font-family: "MyriadWebPro";
+    font-size: @FONT_SIZE_TINY;
+}
+
+.font-fixed {
+    font-family: "Source Code Pro", "Courier New", "Monospace", "Lucida Sans", "Hermit", "Inconsolata";
+}

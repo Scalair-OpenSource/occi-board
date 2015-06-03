@@ -35,7 +35,7 @@ module.exports.routes = {
   '/': {
     view: 'homepage',
     locals: {
-      minified: '.min',
+      minified: '',
       theme: 'cs',
       user: {
         firstname: 'John',

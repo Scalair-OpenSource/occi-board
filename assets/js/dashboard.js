@@ -3,7 +3,7 @@ var Dashboard = function () {
   var GRIDSTER_CONTAINER = '.gridster ul';
   var GRIDSTER_TILES = '.gridster li.gs_w';
   var WIDGET_TRASH_ICON = '.widget-trash';
-  var $WIDGET_TRASH_ICON_TMPL = $('#widget-trash-icon-template').html().compact();
+  var $WIDGET_TRASH_ICON_TMPL = $('#widget-trash-icon-template').html();
   var DURATION_DASHBOARD_REFRESH_ANIMATION = 8000; // milliseconds
 
   function init(config) {

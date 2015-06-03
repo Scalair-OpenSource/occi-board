@@ -15,15 +15,15 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "~2.1.4",
-    "fontawesome": "~4.3.0",
-    "modernizr": "~2.8.3",
-    "jstz-detect": "~1.0.5",
-    "bootstrap": "~3.3.4",
-    "gridster": "~0.5.6",
-    "accountingjs": "~0.3.2",
-    "moment": "~2.10.3",
-    "moment-timezone": "~0.3.1",
-    "lodash": "~3.8.0"
+    "jquery": "~2.1",
+    "fontawesome": "~4.3",
+    "modernizr": "~2.8",
+    "jstz-detect": "~1.0",
+    "bootstrap": "~3.3",
+    "gridster": "~0.5",
+    "accountingjs": "~0.3",
+    "moment": "~2.10",
+    "moment-timezone": "~0.3",
+    "lodash": "~3"
   }
 }
