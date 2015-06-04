@@ -1,6 +1,6 @@
 /*global cloud:true*/
 /*global __:true*/
-/*global cs:true*/
+/*global $OD:true*/
 
 /**
  * Class: Webpage
@@ -10,7 +10,7 @@ $OD.tiles.classes.WebpageSentry = $OD.tiles.classes.BasicTile.extend({
 
   init: function (config) {
 
-    config = Object.merge(config, {
+    config = $.extend(config, {
       type: 'WebpageSentry',
       tmplName: '#webpage-sentry-tile'
     });
@@ -38,55 +38,55 @@ $OD.tiles.classes.WebpageSentry = $OD.tiles.classes.BasicTile.extend({
     switch (self.cfg.webpage_action) {
     case 'thumbnail':
       // URL for a website
-      content = self.tmpl.assign({
-        panel: self.recto.assign({
+      content = cloud.assign(self.tmpl, {
+        panel: cloud.assign(self.recto, {
           id: self.getId(),
           webpage_name: self.cfg.webpage_name || __('Web Page'),
           delay: self._delay,
-          webpage: self._imgSrc ? $('#webpage-sentry-thumbnail').html().assign({
+          webpage: self._imgSrc ? cloud.assign($('#webpage-sentry-thumbnail').html, {
               id: self.getId(),
               webpage_url: self.cfg.webpage_url,
               webpage_img: self._imgSrc,
               webpage_msg: self._msg || ''
-            }) : $('#webpage-sentry-thumbnail').html().assign({
+            }) : cloud.assign($('#webpage-sentry-thumbnail').html, {
               webpage_url: self.cfg.webpage_url
             })
         })
-      }).compact();
+      });
       break;
 
     case 'centreon':
       // URL for a graph from Centreon
-      content = self.tmpl.assign({
-        panel: self.recto.assign({
+      content = cloud.assign(self.tmpl, {
+        panel: cloud.assign(self.recto, {
           id: self.getId(),
           webpage_name: self.cfg.webpage_name || __('Web Page'),
           delay: self._delay,
-          webpage: $('#webpage-sentry-page').html().assign({
+          webpage: cloud.assign($('#webpage-sentry-page').html, {
               id: self.getId(),
               webpage_url: self.cfg.webpage_url,
               webpage_img: self._imgSrc,
               webpage_msg: self._msg || ''
             })
         })
-      }).compact();
+      });
       break;
 
     default:
       // URL for an image (png, gif, jpeg, etc.)
-      content = self.tmpl.assign({
-      panel: self.recto.assign({
+      content = cloud.assign(self.tmpl, {
+      panel: cloud.assign(self.recto, {
         id: self.getId(),
         webpage_name: self.cfg.webpage_name || __('Web Page'),
         delay: self._delay,
-        webpage: $('#webpage-sentry-thumbnail').html().assign({
+        webpage: cloud.assign($('#webpage-sentry-thumbnail').html, {
             id: self.getId(),
             webpage_url: self.cfg.webpage_url,
             webpage_img: self.cfg.webpage_url,
             webpage_msg: self._msg || ''
           })
         })
-      }).compact();
+      });
       break;
     }
 
@@ -182,7 +182,7 @@ $OD.tiles.classes.WebpageSentry = $OD.tiles.classes.BasicTile.extend({
       self.allowRefresh = false; // Do not allow refresh
       cloud.loader.removeAll(self.getjQueryEl());
       self.getjQueryEl().find('.flipbox').flippy({
-        verso: self.verso.assign({ id: self.getId() }),
+        verso: cloud.assign(self.verso, { id: self.getId() }),
         direction: 'left',
         duration: cloud.FLIP_DURATION,
         onFinish: function () {

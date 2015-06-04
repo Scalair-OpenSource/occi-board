@@ -46,6 +46,12 @@ if (typeof console === 'undefined') {
  */
 (function (root, undefined) {
 
+  /*
+   * Translation can include {variables}. Name enclosed by brakets.
+   * @see parent.__
+   */
+  _.templateSettings.interpolate = /{([\s\S]+?)}/g;
+
   var lib = {
     version: '1.0.0',
     major: 1,
@@ -152,7 +158,7 @@ if (typeof console === 'undefined') {
       toConsole: true
     }, config);
 
-    _chrono = Date.create();
+    _chrono = moment();
     if (config.toConsole) {
       console.log('[chrono] Start {' + config.id + '}:', _chrono);
     }
@@ -178,7 +184,7 @@ if (typeof console === 'undefined') {
       id: '',
       toConsole: true
     }, config);
-    var n = Date.create();
+    var n = moment();
     if (config.toConsole) {
       console.log('[chrono] Stop {' + config.id + '}:', n, ' (duration: ', n - _chrono, 'ms)');
     }
@@ -408,7 +414,7 @@ if (typeof console === 'undefined') {
       else {
         if (errorThrown !== undefined) {
           var err = '';
-          if (Object.isString(errorThrown)) {
+          if (_.isString(errorThrown)) {
             err = errorThrown;
           }
           else if (Object.isObject(errorThrown)) {
@@ -459,7 +465,7 @@ if (typeof console === 'undefined') {
      * This method return the string after removal of script tags.
      */
     xssSanitize: function (str) {
-      if (Object.isString(str)) {
+      if (_.isString(str)) {
         return str.stripTags('script');
       }
       else {
@@ -554,7 +560,7 @@ if (typeof console === 'undefined') {
 
       // Create simple password from A-Z and 1-9 (no zero)
       for (var i = 0; i < length; i++) {
-        p += PASSWORD_ALLOWED_CHARS[Number.random(35)];
+        p += PASSWORD_ALLOWED_CHARS[_.random(35)];
       }
 
       return p;

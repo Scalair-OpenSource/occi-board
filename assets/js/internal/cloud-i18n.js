@@ -5244,11 +5244,6 @@ var registerCloudI18N = function (parent) {
          */
         loadTimezone();
         moment.locale(getCurrentLocaleCode());
-        /*
-         * Translation can include {variables}. Name enclosed by brakets.
-         * @see parent.__
-         */
-        _.templateSettings.interpolate = /{([\s\S]+?)}/g;
       }
       else {
         console.warning('No translation returned!');

@@ -1,6 +1,7 @@
+/*global _:true*/
 /*global cloud:true*/
 /*global __:true*/
-/*global cs:true*/
+/*global $OD:true*/
 
 /**
  * Class: Feed
@@ -10,7 +11,7 @@ $OD.tiles.classes.Feed = $OD.tiles.classes.BasicTile.extend({
 
   init: function (config) {
 
-    config = Object.merge(config, {
+    config = $.extend(config, {
       type: 'Feed',
       tmplName: '#feed-tile'
     });
@@ -76,15 +77,13 @@ $OD.tiles.classes.Feed = $OD.tiles.classes.BasicTile.extend({
       var list ='';
       var n = 0;
       $('#feed-' + self.getId()).empty();
-      feed.entries.each(function (item) {
+      _.forEach(feed.entries, function (item) {
         if (self.cfg.rss_num === 0 || n < self.cfg.rss_num) {
           list += templ.assign(item);
         }
         n++;
       });
       $('#feed-' + self.getId()).append('<ul>' + list + '</ul>');
-
-      cloud.attachTooltips(self.getjQueryEl());
     }
   },
 
@@ -95,8 +94,8 @@ $OD.tiles.classes.Feed = $OD.tiles.classes.BasicTile.extend({
   getContent: function () {
     var self = this;
 
-    return self.tmpl.assign({
-      panel: self.recto.assign({
+    return cloud.assign(self.tmpl, {
+      panel: cloud.assign(self.recto, {
         id: 'feed-' + self.getId(),
         rss_num: self.cfg.rss_num,
         rss_url: self.cfg.rss_url,
@@ -107,7 +106,7 @@ $OD.tiles.classes.Feed = $OD.tiles.classes.BasicTile.extend({
     }).trim();
   },
 
-  refresh: function (config) {
+  refresh: function () {
     var self = this;
     self.parseRSS(self.cfg.rss_url, function (feed) {
 

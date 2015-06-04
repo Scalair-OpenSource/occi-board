@@ -24,6 +24,11 @@
     "accountingjs": "~0.3",
     "moment": "~2.10",
     "moment-timezone": "~0.3",
-    "lodash": "~3"
+    "lodash": "~3",
+    "jpanelmenu": "~1.4.1",
+    "clndr": "~1.2.10",
+    "eonasdan-bootstrap-datetimepicker": "~4.7.14",
+    "malihu-custom-scrollbar-plugin": "~3.0.8",
+    "pnotify": "~2.0.1"
   }
 }

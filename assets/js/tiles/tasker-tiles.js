@@ -1,7 +1,8 @@
+/*global _:true*/
 /*global moment:true*/
 /*global cloud:true*/
 /*global __:true*/
-/*global cs:true*/
+/*global $OD:true*/
 
 /**
  * Class: Tasker
@@ -11,15 +12,15 @@ $OD.tiles.classes.Tasker = $OD.tiles.classes.BasicTile.extend({
 
   init: function (config) {
 
-    config = Object.merge(config, {
+    config = $.extend(config, {
       type: 'Tasker',
       tmplName: '#tasker-medium-tile'
     });
 
     this._super(config);
 
-    this.tmplRecto = $('#tasker-medium-tile-recto').html().compact();
-    this.tmplTask = $('#tasker-medium-tile-task').html().compact();
+    this.tmplRecto = $('#tasker-medium-tile-recto').html();
+    this.tmplTask = $('#tasker-medium-tile-task').html();
 
     this.tasks = $OD.tiles.storage.tasks; // Get a reference to shared tasks storage
     this.tasks.setOwner(this.getId());
@@ -108,8 +109,8 @@ $OD.tiles.classes.Tasker = $OD.tiles.classes.BasicTile.extend({
     var self = this;
 
     var taskList = '';
-    self.tasks.taskList.each(function (t) {
-      taskList += self.tmplTask.assign({
+    _.forEach(self.tasks.taskList, function (t) {
+      taskList += cloud.assign(self.tmplTask, {
         task_id: t.id,
         task_cls: t.finished ? 'task-finished' : '',
         caption: t.caption,
@@ -117,18 +118,18 @@ $OD.tiles.classes.Tasker = $OD.tiles.classes.BasicTile.extend({
         url: t.url,
         url_cls: t.url && t.url.length > 0 ? '': 'hide',
         published_cls: t.published ? '': 'hide',
-        due_date: t.due_date ? Date.create(t.due_date).toLocaleDateString() : '',
+        due_date: t.due_date ? moment(t.due_date).toLocaleDateString() : '',
         due_date_cls: t.due_date ? '' : 'hide'
       });
     });
 
-    return self.tmpl.assign({
-      panel: self.tmplRecto.assign({
+    return cloud.assign(self.tmpl, {
+      panel: cloud.assign(self.tmplRecto, {
         id: self.getId(),
         tasks: taskList,
         tasks_title: __('Tasks') + $OD.tiles.lib.displayBadge(self.tasks.count())
       })
-    }).compact();
+    });
   },
 
   redraw: function () {
@@ -139,7 +140,7 @@ $OD.tiles.classes.Tasker = $OD.tiles.classes.BasicTile.extend({
     self.getjQueryEl().find('#due-date-picker').datetimepicker({
       locale: cloud.getCurrentLocaleCode(),
       format: 'L',
-      minDate: Date.create('2010/01/01'),
+      minDate: moment(2010,1,1),
       showClear: true,
       showTodayButton: true
     });
@@ -147,8 +148,6 @@ $OD.tiles.classes.Tasker = $OD.tiles.classes.BasicTile.extend({
     if (self.on.afterRefresh) {
       self.on.afterRefresh(self.getId());
     }
-
-    cloud.attachTooltips(self.getjQueryEl());
   },
 
   refresh: function () {

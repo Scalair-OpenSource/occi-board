@@ -34,7 +34,16 @@ var jsFilesToInject = [
   '/components/moment-timezone/moment-timezone.js',
   '/components/jquery/dist/jquery.js',
   '/components/accountingjs/accounting.js',
-  '/components/*.js',
+  '/components/jpanelmenu/jquery.jpanelmenu.js',
+  '/components/gridster/dist/jquery.gridster.with-extras.js',
+  '/components/pnotify/pnotify.core.js',
+  '/components/pnotify/pnotify.callbacks.js',
+  '/components/pnotify/pnotify.confirm.js',
+  '/components/pnotify/pnotify.buttons.js',
+  '/components/clndr/src/clndr.js',
+  '/components/eonasdan-bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js',
+  '/components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js',
+
   'js/dependencies/**/*.js',
 
   // All of the rest of your client-side js files

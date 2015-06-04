@@ -1,6 +1,6 @@
 /*global cloud:true*/
 /*global __:true*/
-/*global cs:true*/
+/*global $OD:true*/
 /*global L:true*/
 
 /**
@@ -11,7 +11,7 @@ $OD.tiles.classes.Map = $OD.tiles.classes.BasicTile.extend({
 
   init: function (config) {
 
-    config = Object.merge(config, {
+    config = $.extend(config, {
       type: 'Map',
       tmplName: '#map-tile'
     });
@@ -39,15 +39,15 @@ $OD.tiles.classes.Map = $OD.tiles.classes.BasicTile.extend({
   getContent: function () {
     var self = this;
 
-    var content = self.tmpl.assign({
-      panel: self.recto.assign({
+    var content = cloud.assign(self.tmpl, {
+      panel: cloud.assign(self.recto, {
         id: self.getId(),
         map_name: self.cfg.map_name || __('Web Page'),
-        map_page: $('#map-page').html().assign({
+        map_page: cloud.assign($('#map-page').html(), {
           id: self.getId()
         })
       })
-    }).compact();
+    });
 
     cloud.loader.removeAll(self.getjQueryEl());
 
@@ -131,7 +131,7 @@ $OD.tiles.classes.Map = $OD.tiles.classes.BasicTile.extend({
       self.allowRefresh = false; // Do not allow refresh
       cloud.loader.removeAll(self.getjQueryEl());
       self.getjQueryEl().find('.flipbox').flippy({
-        verso: self.verso.assign({ id: self.getId() }),
+        verso: cloud.assign(self.verso, { id: self.getId() }),
         direction: 'left',
         duration: cloud.FLIP_DURATION,
         onFinish: function () {

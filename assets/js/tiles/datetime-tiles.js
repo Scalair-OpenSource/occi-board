@@ -1,7 +1,7 @@
 /*global moment:true*/
 /*global cloud:true*/
 /*global __:true*/
-/*global cs:true*/
+/*global $OD:true*/
 
 /**
  * Class: DateTimeCalendar
@@ -11,7 +11,7 @@ $OD.tiles.classes.DateTimeCalendar = $OD.tiles.classes.BasicTile.extend({
 
   init: function (config) {
 
-    config = Object.merge(config, {
+    config = $.extend(config, {
       type: 'DateTimeCalendar',
       tmplName: '#datetime-medium-tile'
     });
@@ -44,8 +44,8 @@ $OD.tiles.classes.DateTimeCalendar = $OD.tiles.classes.BasicTile.extend({
       '</div>';
 
     // Templates for recto/verso. this is a flipping tile
-    this.recto = $('#datetime-medium-tile-recto').html().compact();
-    this.verso = $('#datetime-medium-tile-verso').html().compact();
+    this.recto = $('#datetime-medium-tile-recto').html();
+    this.verso = $('#datetime-medium-tile-verso').html();
     this.cfg.displayHour = cloud.asBool(this.cfg.displayHour);
     this.$calendar = false; // Calendar instance done at first rendering
 
@@ -60,8 +60,8 @@ $OD.tiles.classes.DateTimeCalendar = $OD.tiles.classes.BasicTile.extend({
   getContent: function () {
     var self = this;
 
-    return self.tmpl.assign({
-      panel: self.recto.assign({
+    return cloud.assign(self.tmpl, {
+      panel: cloud.assign(self.recto, {
         date_short: moment().format('LL'),
         date_tooltip: moment().format('LLLL'),
         hiddenhour: self.cfg.displayHour ? '' : 'hide'

@@ -1,6 +1,7 @@
+/*global _:true*/
 /*global moment:true*/
 /*global Class:true*/
-/*global cs:true*/
+/*global $OD:true*/
 /*global cloud:true*/
 /*global __:true*/
 
@@ -69,7 +70,7 @@ $OD.tiles.register = function (config) {
 
 $OD.tiles.getRegisteredClass = function (className) {
   var c;
-  $OD.tiles.reg.each(function (r) {
+  _.forEach($OD.tiles.reg, function (r) {
     if (r.className === className) {
       c = r;
     }
@@ -106,9 +107,9 @@ $OD.tiles.classes.BasicTile = Class.extend({
       throw 'tmpl is mandatory!';
     }
 
-    this.errorTmpl = $('#basic-error-template').html().compact();
-    this.loadingTmpl = $('#loading-tile-template').html().compact();
-    this.workingTmpl = $('#content-loading-tile-template').html().compact();
+    this.errorTmpl = $('#basic-error-template').html();
+    this.loadingTmpl = $('#loading-tile-template').html();
+    this.workingTmpl = $('#content-loading-tile-template').html();
 
     this.firstRefresh = true;
     this.allowRefresh = true;
@@ -119,7 +120,7 @@ $OD.tiles.classes.BasicTile = Class.extend({
 
     this.id = config.id || cloud.createGUID();
     this.type = config.type; // The name of the class to instanciate the tile
-    this.tmpl = $(config.tmplName).html().compact(); // HTML Template to render the tile
+    this.tmpl = $(config.tmplName).html(); // HTML Template to render the tile
     if (config.sizeX) {
       this.sizeX = config.sizeX;
     }
@@ -156,9 +157,9 @@ $OD.tiles.classes.BasicTile = Class.extend({
    */
   getLoadingTile: function () {
     var c = $OD.tiles.getRegisteredClass(this.type);
-    return this.loadingTmpl.assign({
+    return cloud.assign(this.loadingTmpl, {
       tile_header: c && __(c.displayName) || ''
-    }).compact();
+    });
   },
 
   /*
@@ -313,7 +314,7 @@ $OD.tiles.classes.BasicTile = Class.extend({
    * Set the next refresh to occurs in given seconds.
    */
   setRefreshIn: function (sec) {
-    this.lastRefresh = Date.create().addSeconds(-this.getRefreshDelay() + sec);
+    this.lastRefresh = moment().addSeconds(-this.getRefreshDelay() + sec);
   },
 
   /**
@@ -377,7 +378,7 @@ $OD.tiles.classes.BasicTile = Class.extend({
       this.getjQueryEl().empty(); // Remove obsolete DOM
       this.getjQueryEl().html(html);
 
-      if ($OD.userProp.watermark && this.getSizeX() > 1) {
+      if ($OD.user.watermark && this.getSizeX() > 1) {
         this.getjQueryEl().find('.widget-title')
         // .removeClass('widget-title-background-watermark')
         .addClass('widget-title-background-watermark');

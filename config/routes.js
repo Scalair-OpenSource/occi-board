@@ -40,7 +40,11 @@ module.exports.routes = {
       user: {
         firstname: 'John',
         lastname: 'Doe',
-        login: 'jdoe'
+        login: 'jdoe',
+        connection: {
+          last: Date.now(),
+          ip: '127.1'
+        }
       }
     }
   }
