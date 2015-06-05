@@ -570,6 +570,8 @@ var Dashboard = function () {
 
         i++;
         abort = dndEnabled; // User want to move tiles, so do not overload the browser with heavy refresh during this action
+
+        $('#loading-dashboard-curtain').fadeOut();
       }
 
       updateTime();
