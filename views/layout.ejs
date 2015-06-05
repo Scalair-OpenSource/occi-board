@@ -41,9 +41,14 @@
     <script type="text/javascript" src="/styles/themes/<%= theme %>/libs/bootstrap3/assets/js/respond.min.js"></script>
   <![endif]-->
 
-  <link rel="stylesheet" href="/components/gridster/dist/jquery.gridster.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="/components/pnotify/pnotify.core.css"/>
+  <link rel="stylesheet" type="text/css" href="/components/pnotify/pnotify.buttons.css"/>
+  <link rel="stylesheet" type="text/css" href="/components/pnotify/pnotify.history.css"/>
+  <link rel="stylesheet" type="text/css" href="/components/pnotify/pnotify.picon.css"/>
 
-  <link rel="stylesheet" href="/styles/themes/<%= theme %>/libs/scrollbar-plugin/jquery.mCustomScrollbar<%= minified %>.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/components/gridster/dist/jquery.gridster.css" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="/styles/themes/<%= theme %>/libs/scrollbar-plugin/jquery.mCustomScrollbar<%= minified %>.css" rel="stylesheet"/>
   <link rel="stylesheet" href="/styles/themes/<%= theme %>/dashboard<%= minified %>.css"/>
   <link rel="stylesheet" href="/styles/themes/<%= theme %>/tiles/feed-tiles<%= minified %>.css"/>
   <link rel="stylesheet" href="/styles/themes/<%= theme %>/tiles/datetime-tiles<%= minified %>.css"/>
@@ -116,16 +121,23 @@
   <script src="/components/jpanelmenu/jquery.jpanelmenu.js"></script>
   <script src="/components/gridster/dist/jquery.gridster.with-extras.js"></script>
   <script src="/components/pnotify/pnotify.core.js"></script>
-  <script src="/components/pnotify/pnotify.callbacks.js"></script>
-  <script src="/components/pnotify/pnotify.confirm.js"></script>
   <script src="/components/pnotify/pnotify.buttons.js"></script>
+  <script src="/components/pnotify/pnotify.confirm.js"></script>
+  <script src="/components/pnotify/pnotify.nonblock.js"></script>
+  <script src="/components/pnotify/pnotify.desktop.js"></script>
+  <script src="/components/pnotify/pnotify.history.js"></script>
+  <script src="/components/pnotify/pnotify.callbacks.js"></script>
+  <script src="/components/pnotify/pnotify.reference.js"></script>
   <script src="/components/clndr/src/clndr.js"></script>
+  <script src="/components/flippy/jquery.flippy.js"></script>
+  <script src="/components/CoolClock/coolclock.js"></script>
   <script src="/components/eonasdan-bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js"></script>
   <script src="/components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js"></script>
   <script src="/js/internal/class.js"></script>
   <script src="/js/internal/cloud-base.js"></script>
   <script src="/js/internal/cloud-format.js"></script>
   <script src="/js/internal/cloud-i18n.js"></script>
+  <script src="/js/internal/cloud-input.js"></script>
   <script src="/js/init.js"></script>
   <script src="/js/tiles/common-lib.js"></script>
   <script src="/js/tiles/common-storage.js"></script>
@@ -138,5 +150,7 @@
   <script src="/js/tiles/webpage-tiles.js"></script>
   <script src="/js/dashboard.js"></script>
   <!--SCRIPTS END-->
+
+  <script src="/components/moment/locale/<%= req.locale %>.js"></script>
   </body>
 </html>

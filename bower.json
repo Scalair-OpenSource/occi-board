@@ -29,6 +29,9 @@
     "clndr": "~1.2.10",
     "eonasdan-bootstrap-datetimepicker": "~4.7.14",
     "malihu-custom-scrollbar-plugin": "~3.0.8",
-    "pnotify": "~2.0.1"
+    "pnotify": "~2.0.1",
+    "select2": "~4.0.0",
+    "flippy": "*",
+    "CoolClock": "~2.1.4"
   }
 }

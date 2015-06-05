@@ -1,0 +1,40 @@
+<div id="datetime-medium-tile" class="hide" sizex="1" sizey="1">
+    <div class="flipbox-container">
+        <div class="flipbox">
+            <div class="tile">
+                {panel}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="datetime-medium-tile-recto" class="hide">
+
+    <div class="header widget-title widget-title-background widget-title-datetime">
+        <span class="actions-bar pull-right"><span class="hour-display {hiddenhour}"></span> <span id="datetime-medium-tile-recto-setup-button"><i class="fa fa-gear"></i></span></span>
+        <span id="datetime" rel="tooltip" title="{date_tooltip}">{date_short}</span>
+    </div>
+
+    <div class="clearfix clndr-calendar"></div>
+</div>
+
+<div id="datetime-medium-tile-verso" class="hide">
+    <form role="form" class="widget-form full">
+        <div class="form-group">
+            <div class="checkbox">
+                <label>
+                    <input id="display-time" type="checkbox"> <%= __('Display time') %>
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <button id="datetime-medium-tile-verso-done-button" class="btn btn-default"><%= __('Done') %></button>
+        </div>
+    </form>
+</div>
+
+<div id="datetime-analog-clock-tile" class="hide" sizex="1" sizey="1">
+    <div class="clock">
+        <canvas class="CoolClock:classic:70:::"></canvas>
+    </div>
+</div>

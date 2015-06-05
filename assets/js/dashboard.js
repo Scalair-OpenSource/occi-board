@@ -707,13 +707,13 @@ var Dashboard = function () {
         addTile(createTile({
           class: $OD.tiles.classes.DateTimeCalendar,
           attr: {
-            dataCol: 1,
+            dataCol: 0,
             dataRow: 1
           }
         }));
         addTile(createTile({
           class: $OD.tiles.classes.Tasker,
-          dataCol: 2,
+          dataCol: 1,
           dataRow: 1
         }));
 

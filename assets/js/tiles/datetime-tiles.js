@@ -43,6 +43,31 @@ $OD.tiles.classes.DateTimeCalendar = $OD.tiles.classes.BasicTile.extend({
       '  </div>' +
       '</div>';
 
+    // this.tmplCalendar = '<div class="controls">' +
+    //   '<div class="clndr-previous-button"><i class="fa fa-chevron-circle-left"></i></div><div class="month"><%= month %> <%= year %></div><div class="clndr-next-button"><i class="fa fa-chevron-circle-right"></i></div>' +
+    //   '</div>' +
+    //   '<div class="days-container">' +
+    //   '  <div class="days">' +
+    //   '    <div class="headers">' +
+    //   '      <% _.each(daysOfTheWeek, function(day) { %><div class="day-header"><%= day %></div><% }); %>' +
+    //   '    </div>' +
+    //   '    <% _.each(days, function(day) { %><div class="<%= day.classes %>" id="<%= day.id %>"><%= day.day %></div><% }); %>' +
+    //   '  </div>' +
+    //   '  <div class="events">' +
+    //   '    <div class="headers">' +
+    //   '      <div class="x-button"><i class="fa fa-reply"></i></div>' +
+    //   '      <div class="event-header">' + __('Events') + '</div>' +
+    //   '    </div>' +
+    //   '    <div class="widget-scrollbar events-list">' +
+    //   '      <% _.each(eventsThisMonth, function(event) { %>' +
+    //   '        <div class="event <%= event.type %>">' +
+    //   '          <a href="<%= event.url %>"><%= moment(event.date).format("ll") %> <i class="fa fa-long-arrow-right"></i> <%= event.title %></a>' +
+    //   '        </div>' +
+    //   '      <% }); %>' +
+    //   '    </div>' +
+    //   '  </div>' +
+    //   '</div>';
+    //
     // Templates for recto/verso. this is a flipping tile
     this.recto = $('#datetime-medium-tile-recto').html();
     this.verso = $('#datetime-medium-tile-verso').html();

@@ -140,7 +140,7 @@ $OD.tiles.classes.Tasker = $OD.tiles.classes.BasicTile.extend({
     self.getjQueryEl().find('#due-date-picker').datetimepicker({
       locale: cloud.getCurrentLocaleCode(),
       format: 'L',
-      minDate: moment(2010,1,1),
+      minDate: moment('2010-01-01'),
       showClear: true,
       showTodayButton: true
     });
@@ -157,6 +157,7 @@ $OD.tiles.classes.Tasker = $OD.tiles.classes.BasicTile.extend({
       id: this.getId(),
       onError: function (msg) {
         //~self.setError(__('No task available!'));
+        console.log(msg);
       },
       onComplete: function () {
         self.redraw();

@@ -1,0 +1,57 @@
+<div id="webpage-sentry-tile" class="hide" sizex="1" sizey="1" min-sizex="1" min-sizey="1" max-sizex="6" max-sizey="6">
+    <div class="flipbox-container">
+        <div class="flipbox">
+            <div class="webpage-sentry-tile">
+                {panel}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="webpage-sentry-tile-recto" class="hide">
+    <div id="webpage-sentry-title" class="header widget-title widget-title-background-alt">
+        <span class="actions-bar pull-right"><span id="webpage-sentry-tile-recto-setup-button"><i class="fa fa-gear"></i></span></span>
+        <i class="widget-title-icon fa fa-eye fa-2x"></i> {webpage_name}<!-- <small><%= ('{delay} ms') %></small> -->
+    </div>
+    <div class="content full">
+        <div id="{id}-webpage" class="web-page">
+            {webpage}
+        </div>
+    </div>
+</div>
+
+<div id="webpage-sentry-tile-verso" class="hide">
+    <form role="form" class="widget-form full">
+        <div class="form-group">
+            <input id="webpage_name" type="text" class="form-control" placeholder="<%= __('Web page name') %>">
+            <input id="webpage_url" type="text" class="form-control" placeholder="<%= __('Web page URL') %>">
+            <select id="webpage_action" class="form-control">
+                <option action="thumbnail"><%= __('URL is a web page') %></option>
+                <option action="img"><%= __('URL is an image') %></option>
+                <option action="centreon"><%= __('URL is a graph from Centreon') %></option>
+            </select>
+            <select id="webpage_refresh" class="form-control">
+                <option delay_min="5"><%= __('Refresh every 5 minutes') %></option>
+                <option delay_min="10"><%= __('Refresh every 10 minutes') %></option>
+                <option delay_min="15"><%= __('Refresh every 15 minutes') %></option>
+                <option delay_min="30"><%= __('Refresh every 30 minutes') %></option>
+                <option delay_min="60"><%= __('Refresh every hour') %></option>
+                <option delay_min="120"><%= __('Refresh every 2 hours') %></option>
+                <option delay_min="240"><%= __('Refresh every 4 hours') %></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <button id="webpage-sentry-tile-verso-done-button" class="btn btn-default"><%= __('Done') %></button>
+        </div>
+    </form>
+</div>
+
+<div id="webpage-sentry-thumbnail" class="hide">
+    <a href="{webpage_url}" target="_web" rel="tooltip" title="{webpage_url}">
+        <img id="webpage-{id}" src="{webpage_img}" class="full">
+    </a>
+</div>
+
+<div id="webpage-sentry-page" class="hide">
+    <img id="webpage-{id}" src="{webpage_img}" class="full">
+</div>

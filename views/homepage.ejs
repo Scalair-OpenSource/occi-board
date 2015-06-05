@@ -58,6 +58,7 @@
 
 <script>
 var $OD = {
+  locale: "<%= req.locale %>",
   user: {
     firstname: "<%= user.firstname %>",
     lastname: "<%= user.lastname %>",
@@ -69,3 +70,10 @@ var $OD = {
   }
 };
 </script>
+
+<%- partial ('./partials/tiles/datetime-tiles.ejs') %>
+<%- partial ('./partials/tiles/feed-tiles.ejs') %>
+<%- partial ('./partials/tiles/map-tiles.ejs') %>
+<%- partial ('./partials/tiles/tasker-tiles.ejs') %>
+<%- partial ('./partials/tiles/webpage-tiles.ejs') %>
+<!-- %- partial ('./partials/tiles/test.ejs') % -->

@@ -1,0 +1,66 @@
+<div id="map-tile" class="hide" sizex="1" sizey="1" min-sizex="1" min-sizey="1" max-sizex="8" max-sizey="8">
+    <div class="flipbox-container">
+        <div class="flipbox">
+            <div class="map-tile">
+                {panel}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="map-tile-recto" class="hide">
+    <div id="map-title" class="header widget-title widget-title-background-alt">
+        <span class="actions-bar pull-right">
+            <span id="map-tile-recto-compass-button" rel="tooltip" title="<% __('Center map on my position') %>"><i class="fa fa-compass"></i></span>
+            <span id="map-tile-recto-setup-button"><i class="fa fa-gear"></i></span>
+        </span>
+        <i class="widget-title-icon fa fa-map-marker fa-2x"></i> {map_name}
+    </div>
+    <div class="content">
+        <div id="{id}-mappage" class="map-page">
+            {map_page}
+        </div>
+    </div>
+</div>
+
+<div id="map-tile-verso" class="hide">
+    <form role="form" class="widget-form full">
+        <div class="form-group">
+            <input id="map_name" type="text" class="form-control" placeholder="<%= __('Map name') %>">
+        </div>
+        <div class="form-group">
+            <label for="map_lg">Center map on location:</label>
+            <div class="row">
+                <div class="col-md-6">
+                    <input id="map_lg" type="number" class="form-control" placeholder="<%= __('Longitude') %>">
+                </div>
+                <div class="col-md-6">
+                    <input id="map_la" type="number" class="form-control" placeholder="<%= __('Latitude') %>">
+                </div>
+            </div>
+            <button id="map_get_location" class="pull-right btn btn-xs"><i class="fa fa-compass"></i> <%= __('Get my location') %></button>
+        </div>
+        <div class="form-group">
+            <label for="map_zoom"><%= __('Display zoom level:') %></label>
+            <input id="map_zoom" type="text" class="form-control" placeholder="<%= __('Zoom level') %>">
+        </div>
+        <div class="form-group">
+            <select id="map_refresh" class="form-control">
+                <option delay_min="5"><%= __('Refresh every 5 minutes') %></option>
+                <option delay_min="10"><%= __('Refresh every 10 minutes') %></option>
+                <option delay_min="15"><%= __('Refresh every 15 minutes') %></option>
+                <option delay_min="30"><%= __('Refresh every 30 minutes') %></option>
+                <option delay_min="60"><%= __('Refresh every hour') %></option>
+                <option delay_min="120"><%= __('Refresh every 2 hours') %></option>
+                <option delay_min="240"><%= __('Refresh every 4 hours') %></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <button id="map-tile-verso-done-button" class="btn btn-default"><%= __('Done') %></button>
+        </div>
+    </form>
+</div>
+
+<div id="map-page" class="hide">
+    <div id="map-{id}" class="full"></div>
+</div>

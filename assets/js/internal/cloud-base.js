@@ -46,21 +46,26 @@ if (typeof console === 'undefined') {
  */
 (function (root, undefined) {
 
-  /*
-   * Translation can include {variables}. Name enclosed by brakets.
-   * @see parent.__
-   */
-  _.templateSettings.interpolate = /{([\s\S]+?)}/g;
-
   var lib = {
     version: '1.0.0',
     major: 1,
     minor: 0,
-    build: 0
+    build: 0,
+    copyright: '2012© Scalair Cloud Library'
   };
 
   /*
+   * You can use templating for string and include {variables}.
+   * The variableName are enclosed by brakets.
    *
+   * @Example:
+   * cloud.assign("The {key} is {value}.", { value: 42, key: "infinite" });
+   * will return "The infinite is 42."
+   */
+  var SCALAIR_INTERPOLATE_DELIMITER = lib.SCALAIR_INTERPOLATE_DELIMITER = /{([\s\S]+?)}/g;
+
+  /*
+   * Regular expressions cache
    */
   var regexp = lib.regexp = {
     isFloat: new RegExp(/^[+-]?((\d+(\.\d*)?)|(\.\d+))$/)
@@ -119,8 +124,6 @@ if (typeof console === 'undefined') {
   var PASSWORD_ALLOWED_CHARS = lib.PASSWORD_ALLOWED_CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890abcdefghijklmnopqrstuvwxyz@_-+*&#$£€%!:;.?,<>(){}[]'.split('');
   var FLIP_DURATION = lib.FLIP_DURATION = 250; // Milliseconds
   var SLIDE_DURATION = lib.SLIDE_DURATION = 300; // Milliseconds
-
-
 
   /*
    * Internal values
@@ -322,6 +325,49 @@ if (typeof console === 'undefined') {
    */
   var createShortID = lib.createShortID = function () {
     return (createTinyID()+'-'+createTinyID());
+  };
+
+  /**
+  * Notification use the jQuery pnotify plugin.
+  */
+  var notify = lib.notify = {
+    info: function (msg) {
+      new PNotify({
+        title: false,
+        text: msg,
+        delay: NOTIFICATION_DURATION_INFO,
+        sticker: false,
+        //~ sticker: true,
+        //~ sticker_hover: false,   // Pause button is always visible
+        closer_hover: false,    // Close button is always visible
+        mouse_reset: false,     // Mouse hover does not prevent from hiding
+        type: 'info'
+      });
+    },
+
+    success: function (msg) {
+      new PNotify({
+        title: false,
+        text: msg,
+        delay: NOTIFICATION_DURATION,
+        sticker: false,
+        closer_hover: false,    // Close button is always visible
+        mouse_reset: false,     // Mouse hover does not prevent from hiding
+        type: 'success'
+      });
+    },
+
+    error: function (msg) {
+      new PNotify({
+        title: false,
+        text: msg,
+        hide: false, // Errors need to be closed manually
+        sticker: false,
+        closer_hover: false,    // Close button is always visible
+        mouse_reset: false,     // Mouse hover does not prevent from hiding
+        type: 'error'
+      });
+    }
   };
 
   var error = lib.error = {
@@ -640,7 +686,9 @@ if (typeof console === 'undefined') {
   var parseURL = lib.parseURL = function (url) {
     var o = {
       strictMode: false,
-      key: ["source","protocol","authority","userInfo","user","password","host","port","relative","path","directory","file","query","anchor"],
+      key: [
+        "source", "protocol", "authority", "userInfo", "user", "password", "host", "port", "relative", "path", "directory", "file", "query", "anchor"
+      ],
       q:   {
         name:   "queryKey",
         parser: /(?:^|&)([^&=]*)=?([^&]*)/g

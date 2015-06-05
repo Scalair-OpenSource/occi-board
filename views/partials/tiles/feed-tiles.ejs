@@ -1,0 +1,51 @@
+<div id="feed-tile" class="hide" sizex="1" sizey="1" min-sizex="1" min-sizey="1" max-sizex="2" max-sizey="8">
+    <div class="flipbox-container">
+        <div class="flipbox">
+            <div class="tile">
+                {panel}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="feed-tile-recto" class="hide">
+    <div class="header widget-title widget-title-background-alt">
+        <span class="actions-bar pull-right"><span id="feed-tile-recto-setup-button"><i class="fa fa-gear"></i></span></span>
+        <i class="widget-title-icon fa fa-rss fa-2x"></i> <%= __('Feeds') %>
+    </div>
+    <div class="content widget-scrollbar rss-feed">
+        <legend rel="tooltip" title="{rss_desc}"><small><a href="{rss_link}" target="_feed">{rss_title}</a></small></legend>
+        <div class=" post_results" id="{id}" rss_num="{rss_num}" rss_url="{rss_url}">
+            <div class="loading_rss">
+                <i class="fa fa-circle-o-notch fa-spin"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="feed-tile-verso" class="hide">
+    <form role="form" class="widget-form full">
+        <div class="form-group">
+            <input id="feed_url" type="text" class="form-control" placeholder="<%= __('Feed URL') %>">
+
+            <label for="feed_num"><%= __('Number of lines to read:') %>
+                <input id="feed_num" type="text" class="form-control" placeholder="<%= __('#Feeds to load') %>">
+            </label>
+
+            <select id="feed_refresh" class="form-control">
+                <option delay_min="1"><%= __('Refresh every minute') %></option>
+                <option delay_min="2"><%= __('Refresh every 2 minutes') %></option>
+                <option delay_min="5"><%= __('Refresh every 5 minutes') %></option>
+                <option delay_min="10"><%= __('Refresh every 10 minutes') %></option>
+                <option delay_min="15"><%= __('Refresh every 15 minutes') %></option>
+                <option delay_min="30"><%= __('Refresh every 30 minutes') %></option>
+                <option delay_min="60"><%= __('Refresh every hour') %></option>
+                <option delay_min="120"><%= __('Refresh every 2 hours') %></option>
+                <option delay_min="240"><%= __('Refresh every 4 hours') %></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <button id="feed-tile-verso-done-button" class="btn btn-default"><%= __('Done') %></button>
+        </div>
+    </form>
+</div>

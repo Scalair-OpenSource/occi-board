@@ -1,7 +1,8 @@
 /*global console:true*/
+/*global _:true*/
 /*global moment:true*/
-/*global jstz:true*/
 /*global accounting:true*/
+/*global jstz:true*/
 
 /**
  * Function: registerCloudI18N
@@ -5296,12 +5297,12 @@ var registerCloudI18N = function (parent) {
    * __("Welcome {name}!", { name: 'Tom' }) --> "Bonjour Tom !"
    */
   var __ = parent.__ = function (id, data) {
-    try {
-      return _.template(parent._i18n_cache[id])(data);
+    if (parent._i18n_cache[id] !== undefined) {
+      return _.template(parent._i18n_cache[id], { interpolate: parent.SCALAIR_INTERPOLATE_DELIMITER })(data);
     }
-    catch (e) {
+    else {
       console.error('[i18n] not found: "' + id + '"');
-      return _.template(id)(data);
+      return _.template(id, { interpolate: parent.SCALAIR_INTERPOLATE_DELIMITER })(data);
     }
   };
 

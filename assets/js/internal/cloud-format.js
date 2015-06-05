@@ -1,4 +1,5 @@
 /*global _:true*/
+/*global moment:true*/
 /*global accounting:true*/
 
 /**
@@ -13,7 +14,7 @@
 var registerCloudFormat = function (parent) {
 
     var assign = parent.assign = function (text, data) {
-        return _.template(text)(data);
+        return _.template(text, { interpolate: parent.SCALAIR_INTERPOLATE_DELIMITER })(data);
     };
 
     /**

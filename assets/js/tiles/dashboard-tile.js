@@ -353,8 +353,11 @@ $OD.tiles.classes.BasicTile = Class.extend({
    * Remove usual visual consrols
    */
   garbage: function () {
-    this.getjQueryEl().find('.select2-container').select2('destroy');
-    this.getjQueryEl().find('.mCustomScrollbar').mCustomScrollbar('destroy');
+    try {
+      this.getjQueryEl().find('.select2-container').select2('destroy');
+      this.getjQueryEl().find('.mCustomScrollbar').mCustomScrollbar('destroy');
+    }
+    catch (e) {}
   },
 
   /*
