@@ -1,5 +1,6 @@
 /*global console:true*/
 /*global Modernizr:true*/
+/*global cloud:true*/
 /*global bootbox:true*/
 /*global __:true*/
 /*global PNotify:true*/
@@ -94,7 +95,7 @@ var registerCloudInput = function (parent) {
                     result = result.unescapeURL();
                 }
                 if (config.asNumber) {
-                    result = result ? result.toNumber() : 0;
+                    result = result ? cloud.formatNumber(result) : 0;
                 }
             }
 
@@ -562,7 +563,7 @@ var registerCloudInput = function (parent) {
 
     parent.progressbar = {
         getColorBar: function (percent, options) {
-            var o = Object.merge({
+            var o = $.extend({
                 infoThreshold: 20,
                 successThreshold: 40,
                 warningThreshold: 60,
@@ -641,7 +642,7 @@ var registerCloudInput = function (parent) {
          * Store x-editable default configuration. Retrieve it with defaultConfig attribute.
          */
         setDefaultInputOptions: function (config) {
-            config = Object.merge(parent.xeditable.defaultOptions, config);
+            config = $.extend(parent.xeditable.defaultOptions, config);
         },
 
         setDefaultConfig: function () {
@@ -662,7 +663,7 @@ var registerCloudInput = function (parent) {
          * attributes.value - The current value of the input
          */
         createNumberInput: function (attributes) {
-            return '<a href="#" id="{id}" data-type="number" data-clear="false" data-placeholder="{value}">{value}</a>'.assign(attributes);
+            return cloud.assign('<a href="#" id="{id}" data-type="number" data-clear="false" data-placeholder="{value}">{value}</a>', attributes);
         }
 
     };
@@ -685,13 +686,13 @@ var registerCloudInput = function (parent) {
          * - config.options - Options to modify slider behaviour
          */
         create: function (config) {
-            config.$container.append('<div class="form-group"><label for="{id}">{label}</label> <span id="value-{id}" class="pull-right slider-value">{value}</span><input id="{id}" type="text"></div>'.assign({
+            config.$container.append(cloud.assign('<div class="form-group"><label for="{id}">{label}</label> <span id="value-{id}" class="pull-right slider-value">{value}</span><input id="{id}" type="text"></div>', {
                 id: config.id,
                 label: config.label,
                 value: config.value
             }));
 
-            var opt = Object.merge(parent.slider.defaultOptions, config.options);
+            var opt = $.extend(parent.slider.defaultOptions, config.options);
 
             var slider = $('input#' + config.id).slider(opt);
             slider.formater = opt.formater;
@@ -727,11 +728,11 @@ var registerCloudInput = function (parent) {
 
     parent.validator = {
         isPositiveNumber: function (value, callback) {
-            callback(value.toNumber() >= 0);
+            callback(cloud.formatNumber(value) >= 0);
         },
 
         isNumberNotNull: function (value, callback) {
-            callback(value.toNumber() >= 1);
+            callback(cloud.formatNumber(value) >= 1);
         },
 
         isNumber: function (value, callback) {

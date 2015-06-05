@@ -25,8 +25,8 @@ $OD.tiles.classes.Feed = $OD.tiles.classes.BasicTile.extend({
     this.MAX_FEEDS_LOAD = 32;
     //~ this.cfg.rss_url = this.cfg.rss_url || 'http://www.certa.ssi.gouv.fr/site/certa_alerte.rss';
     this.cfg.rss_url = this.cfg.rss_url || 'http://www.cert.ssi.gouv.fr/site/cert-fr.rss';
-    this.cfg.rss_num = this.cfg.rss_num ? this.cfg.rss_num.toNumber() : 8;
-    this.cfg.rss_refresh = this.cfg.rss_refresh ? this.cfg.rss_refresh.toNumber() : 60;
+    this.cfg.rss_num = this.cfg.rss_num ? cloud.formatNumber(this.cfg.rss_num) : 8;
+    this.cfg.rss_refresh = this.cfg.rss_refresh ? cloud.formatNumber(this.cfg.rss_refresh) : 60;
   },
 
   /*
@@ -79,7 +79,7 @@ $OD.tiles.classes.Feed = $OD.tiles.classes.BasicTile.extend({
       $('#feed-' + self.getId()).empty();
       _.forEach(feed.entries, function (item) {
         if (self.cfg.rss_num === 0 || n < self.cfg.rss_num) {
-          list += templ.assign(item);
+          list += cloud.assign(templ, item);
         }
         n++;
       });

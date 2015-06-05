@@ -33,6 +33,7 @@ var jsFilesToInject = [
   '/components/moment/moment.js',
   '/components/moment-timezone/moment-timezone.js',
   '/components/jquery/dist/jquery.js',
+  '/components/jquery-mousewheel/jquery.mousewheel.js',
   '/components/accountingjs/accounting.js',
   '/components/jpanelmenu/jquery.jpanelmenu.js',
   '/components/select2/dist/select2.full.js',
@@ -50,6 +51,7 @@ var jsFilesToInject = [
   '/components/CoolClock/coolclock.js',
   '/components/eonasdan-bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js',
   '/components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js',
+  '/components/eiyria-bootstrap-slider/dist/bootstrap.slider.min.js',
   'js/dependencies/**/*.js',
 
   // All of the rest of your client-side js files

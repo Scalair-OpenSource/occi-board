@@ -140,7 +140,7 @@ $OD.tiles.classes.DateTimeCalendar = $OD.tiles.classes.BasicTile.extend({
 
     $.ajax({
       type: 'GET',
-      url: '/tasks/events',
+      url: '/task/events',
       dataType: 'json',
       success: function (json) {
         if (json && json.records) {

@@ -1,11 +1,10 @@
-/*global cloud:true*/
 /*global __:true*/
-/*global cs:true*/
+/*global $OD:true*/
 
 /**
- * Class: $OD.tiles.storage.Tasks
- * This object allow to retrieve and share alarms with all tiles.
- */
+* Class: $OD.tiles.storage.Tasks
+* This object allow to retrieve and share alarms with all tiles.
+*/
 $OD.tiles.storage.Tasks = $OD.tiles.storage.Base.extend({
 
   init: function (config) {
@@ -14,17 +13,17 @@ $OD.tiles.storage.Tasks = $OD.tiles.storage.Base.extend({
     this._name = 'tasks-storage';
 
     /**
-     * Variable: tasks
-     * Array of tasks for current user.
-     */
+    * Variable: tasks
+    * Array of tasks for current user.
+    */
     this.taskList = [];
 
   },
 
   /**
-   * Method: count
-   * Returns the total number of alarms.
-   */
+  * Method: count
+  * Returns the total number of alarms.
+  */
   count: function () {
     var self = this;
     return self.taskList.length;
@@ -46,16 +45,16 @@ $OD.tiles.storage.Tasks = $OD.tiles.storage.Base.extend({
   },
 
   /**
-   * Method: add
-   * Add a task to the list.
-   *
-   * Parameters:
-   * config.caption -
-   * config.due_date -
-   * config.url -
-   * config.finished -
-   * config.published -
-   */
+  * Method: add
+  * Add a task to the list.
+  *
+  * Parameters:
+  * config.caption -
+  * config.due_date -
+  * config.url -
+  * config.finished -
+  * config.published -
+  */
   add: function (config) {
     var self = this;
 
@@ -87,13 +86,13 @@ $OD.tiles.storage.Tasks = $OD.tiles.storage.Base.extend({
   },
 
   /**
-   * Method: del
-   * Delete a task given its identifier.
-   *
-   * Parameters:
-   * config.id - Identifier of the task to delete.
-   * config.onSuccess - Callback if request succeed.
-   */
+  * Method: del
+  * Delete a task given its identifier.
+  *
+  * Parameters:
+  * config.id - Identifier of the task to delete.
+  * config.onSuccess - Callback if request succeed.
+  */
   del: function (config) {
     var self = this;
 
@@ -103,7 +102,7 @@ $OD.tiles.storage.Tasks = $OD.tiles.storage.Base.extend({
       data: {
         id: config.id
       },
-      success: function (data) {
+      success: function () {
         var i = 0;
         while (i < self.taskList.length) {
           if (self.taskList[i].id === config.id) {
@@ -125,20 +124,20 @@ $OD.tiles.storage.Tasks = $OD.tiles.storage.Base.extend({
   },
 
   /**
-   * Method: delAllFinished
-   * Delete all task that are set to finished.
-   *
-   * Parameters:
-   * config.onSuccess - Callback if request succeed.
-   */
+  * Method: delAllFinished
+  * Delete all task that are set to finished.
+  *
+  * Parameters:
+  * config.onSuccess - Callback if request succeed.
+  */
   delAllFinished: function (config) {
     var self = this;
 
     $.ajax({
       type: 'DELETE',
-      url: '/tasks/finished',
+      url: '/task/finished',
       data: {},
-      success: function (data) {
+      success: function () {
         var i = 0;
         while (i < self.taskList.length) {
           if (self.taskList[i].finished) {
@@ -160,13 +159,13 @@ $OD.tiles.storage.Tasks = $OD.tiles.storage.Base.extend({
   },
 
   /**
-   * Method: setFinished
-   * Finish/unfinish a task given its identifier.
-   *
-   * Parameters:
-   * config.id - Identifier of the task to finished/unfinished.
-   * config.onSuccess - Callback if request succeed.
-   */
+  * Method: setFinished
+  * Finish/unfinish a task given its identifier.
+  *
+  * Parameters:
+  * config.id - Identifier of the task to finished/unfinished.
+  * config.onSuccess - Callback if request succeed.
+  */
   setFinished: function (config) {
     var self = this;
 
@@ -179,7 +178,7 @@ $OD.tiles.storage.Tasks = $OD.tiles.storage.Base.extend({
           id: config.id,
           finished: config.finished
         },
-        success: function (data) {
+        success: function () {
           t.finished = config.finished;
           if (config.onSuccess) {
             config.onSuccess();
@@ -194,18 +193,18 @@ $OD.tiles.storage.Tasks = $OD.tiles.storage.Base.extend({
   },
 
   /**
-   * Method: update
-   * Modify a task given its identifier.
-   *
-   * Parameters:
-   * config.id - Identifier of the task to finished/unfinished.
-   * config.caption -
-   * config.due_date -
-   * config.url -
-   * config.finished -
-   * config.published -
-   * config.onSuccess - Callback if request succeed.
-   */
+  * Method: update
+  * Modify a task given its identifier.
+  *
+  * Parameters:
+  * config.id - Identifier of the task to finished/unfinished.
+  * config.caption -
+  * config.due_date -
+  * config.url -
+  * config.finished -
+  * config.published -
+  * config.onSuccess - Callback if request succeed.
+  */
   update: function (config) {
     var self = this;
 
@@ -222,7 +221,7 @@ $OD.tiles.storage.Tasks = $OD.tiles.storage.Base.extend({
           finished: config.finished,
           url: config.url
         },
-        success: function (data) {
+        success: function () {
           if (config.onSuccess) {
             config.onSuccess();
           }
@@ -236,14 +235,14 @@ $OD.tiles.storage.Tasks = $OD.tiles.storage.Base.extend({
   },
 
   /**
-   * Method: request
-   * Ask the server for alarms. Only the owner of this storage can call this method. If no owner, then the request is executed.
-   *
-   * Parameters:
-   * config.onComplete - Callback when request complete, either successfuly or with error. This is always called.
-   * config.onError - Callback if an error occurs. It will be given a parameter with the error message.
-   * config.onSuccess - Callback if request succeed.
-   */
+  * Method: request
+  * Ask the server for alarms. Only the owner of this storage can call this method. If no owner, then the request is executed.
+  *
+  * Parameters:
+  * config.onComplete - Callback when request complete, either successfuly or with error. This is always called.
+  * config.onError - Callback if an error occurs. It will be given a parameter with the error message.
+  * config.onSuccess - Callback if request succeed.
+  */
   request: function (config) {
     var self = this;
 
@@ -259,31 +258,32 @@ $OD.tiles.storage.Tasks = $OD.tiles.storage.Base.extend({
 
       $.ajax({
         type: 'GET',
-        url: '/tasks',
-        dataType: 'json',
-        success: function (json) {
-          if (json && json.records) {
-            self.taskList = json.records;
-          }
+        url: '/task'
+      })
+      .done(function (json) {
+        if (json && json.records) {
+          self.taskList = json.records;
+        }
 
-          if (config.onSuccess) {
-            config.onSuccess();
-          }
+        if (config.onSuccess) {
+          config.onSuccess();
+        }
 
-          self.registerExec();
-        },
-        error: function(jqhxr, errorText, errorThrown) {
-          if (config.onError) {
-            config.onError(__('Insufficient rights!'));
-          }
-        },
-        complete: function () {
-          if (config.onComplete) {
-            config.onComplete();
-          }
+        self.registerExec();
+      }
+
+      )
+      .fail(function() {
+        if (config.onError) {
+          config.onError(__('Insufficient rights!'));
+        }
+      })
+      .always(function () {
+        if (config.onComplete) {
+          config.onComplete();
         }
       });
-
+  
     }
   }
 

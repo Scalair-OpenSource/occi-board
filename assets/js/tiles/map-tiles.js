@@ -22,13 +22,13 @@ $OD.tiles.classes.Map = $OD.tiles.classes.BasicTile.extend({
     this.recto = $('#map-tile-recto').html();
     this.verso = $('#map-tile-verso').html();
     this.cfg.map_name = this.cfg.map_name || __('Map');
-    this.cfg.map_refresh = this.cfg.map_refresh ? this.cfg.map_refresh.toNumber() : 60;
+    this.cfg.map_refresh = this.cfg.map_refresh ? cloud.formatNumber(this.cfg.map_refresh) : 60;
     // Default longitude and latitude are set to Paris
-    this.cfg.map_lg = this.cfg.map_lg ? this.cfg.map_lg.toNumber() : 2.333;
-    this.cfg.map_la = this.cfg.map_la ? this.cfg.map_la.toNumber() : 48.833;
+    this.cfg.map_lg = this.cfg.map_lg ? cloud.formatNumber(this.cfg.map_lg) : 2.333;
+    this.cfg.map_la = this.cfg.map_la ? cloud.formatNumber(this.cfg.map_la) : 48.833;
     this.current_map_lg = this.cfg.map_lg;
     this.current_map_la = this.cfg.map_la;
-    this.cfg.map_zoom = this.cfg.map_zoom ? this.cfg.map_zoom.toNumber() : 13;
+    this.cfg.map_zoom = this.cfg.map_zoom ? cloud.formatNumber(this.cfg.map_zoom) : 13;
     this._map = false; // No map
   },
 
@@ -63,7 +63,7 @@ $OD.tiles.classes.Map = $OD.tiles.classes.BasicTile.extend({
     $div.width($div.parent().width() - 16);
     $div.height(size.h - 8);
 
-    self._map = L.map('map-' + self.getId()).setView([self.current_map_la.toNumber(), self.current_map_lg.toNumber()], self.cfg.map_zoom.toNumber());
+    self._map = L.map('map-' + self.getId()).setView([cloud.formatNumber(self.current_map_la), cloud.formatNumber(self.current_map_lg)], cloud.formatNumber(self.cfg.map_zoom));
 
     /*
      * cloudmade API-KEY: 7347a9f0730c4a34bcfa94ea20ee203a
@@ -74,7 +74,7 @@ $OD.tiles.classes.Map = $OD.tiles.classes.BasicTile.extend({
     }).addTo(self._map);
 
     // Add marker for current location
-    var marker = L.marker([self.current_map_la.toNumber(), self.current_map_lg.toNumber()]).addTo(self._map);
+    var marker = L.marker([cloud.formatNumber(self.current_map_la), cloud.formatNumber(self.current_map_lg)]).addTo(self._map);
 
     /*
      * Bind events
@@ -96,7 +96,7 @@ $OD.tiles.classes.Map = $OD.tiles.classes.BasicTile.extend({
     }
   },
 
-  refresh: function (config) {
+  refresh: function () {
     var self = this;
 
     cloud.loader.startInto(self.getjQueryEl().find('#map-title'));

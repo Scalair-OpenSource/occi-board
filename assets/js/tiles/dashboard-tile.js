@@ -22,7 +22,7 @@
 $OD.tiles.getClass = function (className) {
   var C;
 
-  Object.keys($OD.tiles.classes, function (key, value) {
+  $.each($OD.tiles.classes, function (key, value) {
     if (key === className) {
       C = value;
     }
@@ -265,7 +265,7 @@ $OD.tiles.classes.BasicTile = Class.extend({
    */
   getSizeX: function () {
     try {
-      return this.getjQueryEl().attr('data-sizex').toNumber();
+      return cloud.formatNumber(this.getjQueryEl().attr('data-sizex'));
     }
     catch (e) {
       return 0;
@@ -278,7 +278,7 @@ $OD.tiles.classes.BasicTile = Class.extend({
    */
   getSizeY: function () {
     try {
-      return this.getjQueryEl().attr('data-sizey').toNumber();
+      return cloud.formatNumber(this.getjQueryEl().attr('data-sizey'));
     }
     catch (e) {
       return 0;
@@ -292,8 +292,8 @@ $OD.tiles.classes.BasicTile = Class.extend({
   getSize: function () {
     try {
       return {
-        x: this.getjQueryEl().attr('data-sizex').toNumber(),
-        y: this.getjQueryEl().attr('data-sizey').toNumber()
+        x: cloud.formatNumber(this.getjQueryEl().attr('data-sizex')),
+        y: cloud.formatNumber(this.getjQueryEl().attr('data-sizey'))
       };
     }
     catch (e) {

@@ -35,8 +35,8 @@ var registerCloudFormat = function (parent) {
             decimal: {
                 symbol: parent.__('currency-decimal'),
                 thousand: parent.__('currency-thousand'),
-                precision: parent.__('currency-precision').toNumber(),
-                step: Math.pow(10, -parent.__('currency-precision').toNumber())
+                precision: formatNumber(parent.__('currency-precision')),
+                step: Math.pow(10, -formatNumber(parent.__('currency-precision')))
             }
         };
     };
@@ -55,8 +55,8 @@ var registerCloudFormat = function (parent) {
             decimal: {
                 symbol: parent.__('number-decimal'),
                 thousand: parent.__('number-thousand'),
-                precision: parent.__('number-precision').toNumber(),
-                step: Math.pow(10, -parent.__('currency-precision').toNumber())
+                precision: formatNumber(parent.__('number-precision')),
+                step: Math.pow(10, -formatNumber(parent.__('currency-precision')))
             }
         };
     };
@@ -306,8 +306,8 @@ var registerCloudFormat = function (parent) {
      * type - The type of discount from <parent.DISCOUNT_TYPES>.
      */
     parent.formatDiscount = function (value, type) {
-        type = type.toNumber();
-        value = value.toNumber();
+        type = formatNumber(type);
+        value = formatNumber(value);
 
         if (type === parent.DISCOUNT_TYPES.PERCENT) {
             return parent.__('{percent}%', { percent: value });
@@ -345,7 +345,7 @@ var registerCloudFormat = function (parent) {
      */
     var secondsToString = parent.secondsToString = function (sec, config) {
 
-        var cfg = Object.merge({
+        var cfg = $.extend({
             formatShort: true
         }, config);
 

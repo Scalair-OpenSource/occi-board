@@ -748,7 +748,7 @@ var Dashboard = function () {
 
           // It's time to fill grid with tiles
           var C;
-          _.forEach(prefs['dashboard'], function (tile) {
+          _.forEach(prefs.dashboard.widgets, function (tile) {
             // Get which tile class to instanciate
             C = $OD.tiles.getClass(tile.type);
             if (C) {
@@ -756,10 +756,10 @@ var Dashboard = function () {
                 addTile(createTile({
                   class: C,
                   attr: {
-                    sizeX: tile.size_x.toNumber(),
-                    sizeY: tile.size_y.toNumber(),
-                    dataCol: tile.col.toNumber(),
-                    dataRow: tile.row.toNumber(),
+                    sizeX: cloud.formatNumber(tile.size_x),
+                    sizeY: cloud.formatNumber(tile.size_y),
+                    dataCol: cloud.formatNumber(tile.col),
+                    dataRow: cloud.formatNumber(tile.row),
                     cfg: tile.cfg
                   }
                 }));

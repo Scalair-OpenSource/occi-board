@@ -18,5 +18,10 @@ module.exports = {
       {"id":"cs-dark-bf","name":"CloudSystem® Dark (big font)","widgetsLayout":{"baseHeight":260,"baseWidth":260,"marginHorizontal":4,"marginVertical":4}},
       {"id":"cs-light-bf","name":"CloudSystem® Light (big font)","widgetsLayout":{"baseHeight":260,"baseWidth":260,"marginHorizontal":4,"marginVertical":4}}
     ]);
+  },
+
+  theme: function (req, res) {
+    return res.json({"id":"cs","name":"CloudSystem©","widgetsLayout":{"baseHeight":260,"baseWidth":260,"marginHorizontal":4,"marginVertical":4}});
   }
+
 };

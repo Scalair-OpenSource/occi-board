@@ -1,4 +1,5 @@
 /*global console:true*/
+/*global _:true*/
 /*global root:true*/
 /*global module:true*/
 /*global exports:true*/
@@ -408,16 +409,8 @@ if (typeof console === 'undefined') {
 
           err.code = jsonXHR.code || xhr.responseText;
           err.msg = xhr.responseText;
-          /*
-          var w = xhr.responseText.words();
-          if (w.length > 0)  {
-            var e = w.last().split('/');
-            if (e.length >= 2) {
-              err.type = e[e.length - 2];
-              err.code = e.last().toNumber();
-            }
-          }*/
           break;
+
         default:
           err.code = xhr.statusCode();
           err.type = xhr.statusText;
@@ -463,7 +456,7 @@ if (typeof console === 'undefined') {
           if (_.isString(errorThrown)) {
             err = errorThrown;
           }
-          else if (Object.isObject(errorThrown)) {
+          else if (_.isObject(errorThrown)) {
             $.each(errorThrown, function (key, value) {
               if (errorThrown.hasOwnProperty(key)) {
                 err += key + ': ' + value + '\n';

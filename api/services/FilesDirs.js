@@ -25,7 +25,7 @@ module.exports = {
      */
     loadJSON: function (filePath) {
         try {
-            return JSON.parse(fs.readFileSync(filePath, 'utf8'));
+            return JSON.parse(fs.readFileSync(filePath, { encoding: 'utf8' }));
         }
         catch (e) {
             sails.log.error('File not found: ' + filePath);
@@ -35,7 +35,7 @@ module.exports = {
 
     saveJSON: function (data, filePath) {
         try {
-            fs.writeFileSync(JSON.stringify(data), filePath, 'utf8');
+            fs.writeFileSync(filePath, JSON.stringify(data), { encoding: 'utf8' });
             return true;
         }
         catch (e) {
