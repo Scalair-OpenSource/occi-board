@@ -56,13 +56,13 @@ module.exports.connections = {
   * Run: npm install sails-mongo                       *
   *                                      *
   ***************************************************************************/
-  someMongodbServer: {
+  occiMongoDBServer: {
     adapter: 'sails-mongo',
     host: 'localhost',
     port: 27017,
     // user: 'username',
     // password: 'password',
-    database: 'scalair'
+    database: 'occiware'
   },
 
   /***************************************************************************

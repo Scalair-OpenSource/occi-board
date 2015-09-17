@@ -30,8 +30,7 @@ if (typeof console === 'undefined') {
  *
  * Dependencies:
  * jQuery - http://www.jquery.com/
- * sugar - http://sugarjs.com/
- * Bootstrap 2 - http://getbootstrap.com/2.3.2/index.html
+ * Bootstrap - http://getbootstrap.com/
  * Awesome font - http://fortawesome.github.com/Font-Awesome/
  * validity - http://validity.thatscaptaintoyou.com/
  * pnotify - http://pinesframework.org/pnotify/

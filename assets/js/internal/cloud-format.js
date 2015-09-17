@@ -1,13 +1,13 @@
 /*global _:true*/
 /*global moment:true*/
 /*global accounting:true*/
+/*global formatNumber:true*/
 
 /**
  * Class: CloudFormat
  * This class offers facility to format numbers, currency, etc.
  *
  * Dependencies:
- * sugarsjs - http://sugarjs.com/
  * accounting -  http://josscrowcroft.github.com/accounting.js/#methods
  * Bootstrap3 touch spin - http://www.virtuosoft.eu/code/bootstrap-touchspin/
  */

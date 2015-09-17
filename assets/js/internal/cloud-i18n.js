@@ -9,7 +9,6 @@
  * This add internationalization of web app.
  *
  * Dependencies:
- * sugarsjs - http://sugarjs.com/
  * momentjs - http://momentjs.com/
  * accounting.js - http://josscrowcroft.github.io/accounting.js/
  *

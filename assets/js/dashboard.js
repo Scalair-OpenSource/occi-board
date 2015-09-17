@@ -14,7 +14,6 @@ var Dashboard = function () {
   var DURATION_DASHBOARD_REFRESH_ANIMATION = 8000; // milliseconds
   var EDITOR_GRID_SCALE = 0.6; // Edition of layout reduce scale to 60% of original size
   var REFRESH_DELAY = 10 * 1000; // Test tile refreshing every 2 seconds.
-  var REFRESH_DELAY_TIME = 2 * 1000;
   // var REFRESH_DELAY_KEEP_ALIVE = 60 * 10 * 1000; // Keep session alive.
 
   var loadingDashboardCountDown = 10; // 10 steps
@@ -40,6 +39,9 @@ var Dashboard = function () {
   var isEditingLayout = false;
 
   var init = function () {
+
+   this.REFRESH_DELAY_TIME = 2 * 1000;
+
     /*
     * Hide controls before displaying anything
     */
@@ -608,8 +610,8 @@ var Dashboard = function () {
       * 2) Set its overflow to hidden or auto.
       */
       $('#' + id).find('.widget-scrollbar').mCustomScrollbar({
-        theme: 'occi-scrollbar',
-        //~ theme: 'noscrollbar',
+        // theme: 'occi',
+        theme: 'light',
         autoHideScrollbar: true,
         mouseWheel: true,
         mouseWheelPixels: 'auto',
@@ -646,6 +648,7 @@ var Dashboard = function () {
   var saveTiles = function (callback) {
 
     var data = {
+      _crsf: $OD.CSRF_TOKEN,
       dashboard: {
         widgets: gridster.serialize(),
         fullscreen: isFullScreen

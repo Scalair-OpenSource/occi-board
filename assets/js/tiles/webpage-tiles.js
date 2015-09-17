@@ -127,6 +127,7 @@ $OD.tiles.classes.WebpageSentry = $OD.tiles.classes.BasicTile.extend({
         dataType: 'json',
         url: '/makethumb',
         data: {
+          _crsf: $OD.CSRF_TOKEN,
           url: encodeURI(self.cfg.webpage_url),
           width: self.getSizeX() * 260,
           height: self.getSizeY() * 220
@@ -150,6 +151,7 @@ $OD.tiles.classes.WebpageSentry = $OD.tiles.classes.BasicTile.extend({
         url: '/centreoncapture',
         type: 'POST',
         data: {
+          _crsf: $OD.CSRF_TOKEN,
           url: encodeURI(self.cfg.webpage_url)
         }
       })

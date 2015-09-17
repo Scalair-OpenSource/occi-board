@@ -10,8 +10,7 @@
  * This class is a facility to manage inputs like test, radio and checkbox.
  *
  * Dependencies:
- * sugarsjs - http://sugarjs.com/
- * Bootstrap 2 - http://getbootstrap.com/2.3.2/index.html
+ * Bootstrap - http://getbootstrap.com/
  * bootbox - http://bootboxjs.com/
  * pnotify - http://pinesframework.org/pnotify/
  * x-editable - http://vitalets.github.io/x-editable/
@@ -122,8 +121,7 @@ var registerCloudInput = function (parent) {
             }
         },
 
-        // Requires bootstrap datetimepicker version 4
-        // Requires sugarjs
+        // Requires bootstrap datetimepicker 
         // getDate: function (input, config) {
         getDate: function (input) {
             if ($(input).length === 0) {

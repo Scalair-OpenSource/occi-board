@@ -62,6 +62,7 @@ $OD.tiles.storage.Tasks = $OD.tiles.storage.Base.extend({
       type: 'POST',
       url: '/task',
       data: {
+        _crsf: $OD.CSRF_TOKEN,
         caption: config.caption,
         url: config.url,
         due_date: config.due_date,
@@ -283,7 +284,7 @@ $OD.tiles.storage.Tasks = $OD.tiles.storage.Base.extend({
           config.onComplete();
         }
       });
-  
+
     }
   }
 
