@@ -1,0 +1,30 @@
+<div id="sessions-tile" class="hide" sizex="1" sizey="1" min-sizex="1" min-sizey="1" max-sizex="2" max-sizey="8">
+    <div class="flipbox-container">
+        <div class="flipbox">
+            <div class="tile">
+                {panel}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="sessions-tile-recto" class="hide">
+    <div class="header widget-title widget-title-background-alt">
+        <i class="widget-title-icon fa fa-users fa-2x"></i> <%= __('Sessions') %> {count}
+        <span class="actions-bar pull-right">
+           <span id="sessions-tile-recto-help" href="#"><i class="fa fa-info-circle"></i></span>
+        </span>
+    </div>
+    <div class="content widget-scrollbar sessions-panel">
+        <div class="sessions-list">
+            {sessions}
+        </div>
+    </div>
+</div>
+
+<div id="sessions-item" class="hide">
+    <div class="sessions-item">
+        <div class="pull-right" rel="tooltip" title="<%= __('Session ending date and time.') %>">{bail}</div>
+        <div class="login {cls}"><i class="fa {iconName}"></i> {login}</div><div class="ip-addr">@{ipaddr}</div> <div class="fullname">{full_name}</div>
+    </div>
+</div>

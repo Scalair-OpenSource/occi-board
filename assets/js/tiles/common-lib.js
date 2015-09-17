@@ -1,11 +1,8 @@
-/*global cloud:true*/
-/*global __:true*/
-/*global cs:true*/
-/*global moment:true*/
+/*global $OD:true*/
 
 /**
  * Namespace: $OD.tiles
- * This namespace contains all stuff to manage tiles for CloudSystem® application.
+ * This namespace contains all stuff to manage tiles for Dashboard application.
  *
  * Content:
  * $OD.tiles - Object that store registered tiles, class of tiles and shared data. You will seldom need to use it.

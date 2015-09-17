@@ -32,23 +32,23 @@
 @COLOR_WHITE: #ffffff;
 @COLOR_WHITE_TRANSPARENT: rgba(255, 255, 255, 0.5);
 
-@COLOR_CLOUDSYSTEM_DISABLED: #b6b6b6;
-@COLOR_CLOUDSYSTEM_GRAY_LIGHT: #e0dfdf;
-@COLOR_CLOUDSYSTEM_GRAY: #d4d2d2;
-@COLOR_CLOUDSYSTEM_GRAY_DARK: #5c5c5c;
-@COLOR_CLOUDSYSTEM_GRAY_INK: #c6c6c6;
-@COLOR_CLOUDSYSTEM_BLUE: #42708d;
-@COLOR_CLOUDSYSTEM_BLUE_TRANSPARENT: rgba(66, 112, 141, 0.10);
-@COLOR_CLOUDSYSTEM_GREEN: #c0cf74;
-@COLOR_CLOUDSYSTEM_GREEN_TRANSPARENT: rgba(192, 207, 116, 0.20);
+@COLOR_OCCI_DASHBOARD_DISABLED: #b6b6b6;
+@COLOR_OCCI_DASHBOARD_GRAY_LIGHT: #e0dfdf;
+@COLOR_OCCI_DASHBOARD_GRAY: #cccccc;
+@COLOR_OCCI_DASHBOARD_GRAY_DARK: #5c5c5c;
+@COLOR_OCCI_DASHBOARD_GRAY_INK: @COLOR_OCCI_DASHBOARD_GRAY;
+@COLOR_OCCI_DASHBOARD_2: #00ADE6;
+@COLOR_OCCI_DASHBOARD_2_TRANSPARENT: rgba(0, 173, 230, 0.10);
+@COLOR_OCCI_DASHBOARD_1: #086483;
+@COLOR_OCCI_DASHBOARD_1_TRANSPARENT: rgba(8, 100, 131, 0.3);
 
 
-.color-background-cloudsystem-blue {
-  background-color: @COLOR_CLOUDSYSTEM_BLUE;
+.color-background-occi-dashboard-blue {
+  background-color: @COLOR_OCCI_DASHBOARD_1;
 }
 
-.color-background-cloudsystem-green {
-  background-color: @COLOR_CLOUDSYSTEM_GREEN;
+.color-background-occi-dashboard-green {
+  background-color: @COLOR_OCCI_DASHBOARD_2;
 }
 
 .color-background-amber {
@@ -147,12 +147,12 @@
   background-color: @COLOR_WHITE;
 }
 
-.color-text-cloudsystem-blue {
-  color: @COLOR_CLOUDSYSTEM_BLUE;
+.color-text-occi-dashboard-blue {
+  color: @COLOR_OCCI_DASHBOARD_1;
 }
 
-.color-text-cloudsystem-green {
-  color: @COLOR_CLOUDSYSTEM_GREEN;
+.color-text-occi-dashboard-green {
+  color: @COLOR_OCCI_DASHBOARD_2;
 }
 
 .color-text-amber {
@@ -354,8 +354,8 @@ label.required:before, span.required:before {
 }
 
 tr.bbGrid-row.selected {
-  border-left: 8px solid @COLOR_CLOUDSYSTEM_GREEN !important;
-  border-right: 8px solid @COLOR_CLOUDSYSTEM_GREEN !important;
+  border-left: 8px solid @COLOR_OCCI_DASHBOARD_2 !important;
+  border-right: 8px solid @COLOR_OCCI_DASHBOARD_2 !important;
 }
 
 .handsontable .wtHider {
@@ -368,73 +368,75 @@ tr.bbGrid-row.selected {
  * Tree view
  */
  .tree, .tree ul {
-   margin:0;
-   padding:0;
-   list-style:none
+   margin: 0;
+   padding: 0;
+   list-style: none
  }
  .tree ul {
-   margin-left:1em;
-   position:relative
+   margin-left: 1em;
+   position: relative
  }
  .tree ul ul {
-   margin-left:.5em
+   margin-left: .5em
  }
  .tree ul:before {
-   content:"";
-   display:block;
-   width:0;
-   position:absolute;
-   top:0;
-   bottom:0;
-   left:0;
-   border-left:1px solid
+   content: "";
+   display: block;
+   width: 0;
+   position: absolute;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   border-left: 1px solid
  }
  .tree li {
-   margin:0;
-   padding:0 1em;
-   line-height:2em;
-   color: @COLOR_CLOUDSYSTEM_GREEN;
-   font-weight:700;
-   position:relative
+   margin: 0;
+   padding: 0 1em;
+   line-height: 2em;
+   color: @COLOR_OCCI_DASHBOARD_2;
+   font-weight: 700;
+   position: relative
  }
  .tree ul li:before {
-   content:"";
-   display:block;
-   width:10px;
-   height:0;
-   border-top:1px solid;
-   margin-top:-1px;
-   position:absolute;
-   top:1em;
-   left:0
+   content: "";
+   display: block;
+   width: 10px;
+   height: 0;
+   border-top: 1px solid;
+   margin-top: -1px;
+   position: absolute;
+   top: 1em;
+   left: 0
  }
  .tree ul li:last-child:before {
-   background:#fff;
-   height:auto;
-   top:1em;
-   bottom:0
+   background: @COLOR_WHITE;
+   height: auto;
+   top: 1em;
+   bottom: 0;
  }
  .indicator {
    margin-right:5px;
  }
  .tree li a {
    text-decoration: none;
-   color:#369;
+   color:@COLOR_OCCI_DASHBOARD_1;
  }
  .tree li button, .tree li button:active, .tree li button:focus {
    text-decoration: none;
-   color: @COLOR_CLOUDSYSTEM_GREEN;
-   border:none;
-   background:transparent;
-   margin:0px 0px 0px 0px;
-   padding:0px 0px 0px 0px;
+   color: @COLOR_OCCI_DASHBOARD_2;
+   border: none;
+   background: transparent;
+   margin: 0px 0px 0px 0px;
+   padding: 0px 0px 0px 0px;
    outline: 0;
  }
 
 .scalair-spinner {
   width: 30px;
   height: 30px;
-  background-color: #333;
+  //background-color: #333;
+  background-color: @COLOR_OCCI_DASHBOARD_1;
+  border-radius: 7px;
 
   margin: 100px auto;
   -webkit-animation: scalair-rotate-plane 1.2s infinite ease-in-out;

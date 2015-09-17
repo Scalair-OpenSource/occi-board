@@ -41,12 +41,14 @@
     <script type="text/javascript" src="/styles/themes/<%= theme %>/libs/bootstrap3/assets/js/respond.min.js"></script>
   <![endif]-->
 
-  <link rel="stylesheet" type="text/css" href="/components/pnotify/pnotify.core.css"/>
-  <link rel="stylesheet" type="text/css" href="/components/pnotify/pnotify.buttons.css"/>
-  <link rel="stylesheet" type="text/css" href="/components/pnotify/pnotify.history.css"/>
-  <link rel="stylesheet" type="text/css" href="/components/pnotify/pnotify.picon.css"/>
+  <link rel="stylesheet" href="/components/pnotify/src/pnotify.core.css"/>
+  <link rel="stylesheet" href="/components/pnotify/src/pnotify.buttons.css"/>
+  <link rel="stylesheet" href="/components/pnotify/src/pnotify.history.css"/>
+  <link rel="stylesheet" href="/components/pnotify/src/pnotify.picon.css"/>
+  <link rel="stylesheet" href="/components/pnotify/src/pnotify.brighttheme.css"/>
   <link rel="stylesheet" href="/styles/themes/<%= theme %>/libs/scrollbar-plugin/jquery.mCustomScrollbar<%= minified %>.css" rel="stylesheet"/>
   <link rel="stylesheet" href="/components/gridster/dist/jquery.gridster.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="/components/seiyria-bootstrap-slider/dist/css/bootstrap-slider.css" rel="stylesheet"/>
 
   <link rel="stylesheet" href="/styles/themes/<%= theme %>/dashboard<%= minified %>.css"/>
   <link rel="stylesheet" href="/styles/themes/<%= theme %>/tiles/datetime-tiles<%= minified %>.css"/>
@@ -54,6 +56,7 @@
   <link rel="stylesheet" href="/styles/themes/<%= theme %>/tiles/map-tiles<%= minified %>.css"/>
   <link rel="stylesheet" href="/styles/themes/<%= theme %>/tiles/tasker-tiles<%= minified %>.css"/>
   <link rel="stylesheet" href="/styles/themes/<%= theme %>/tiles/webpage-tiles<%= minified %>.css"/>
+  <link rel="stylesheet" href="/styles/themes/<%= theme %>/tiles/sessions-tiles<%= minified %>.css"/>
 
   </head>
 
@@ -121,19 +124,20 @@
   <script src="/components/accountingjs/accounting.js"></script>
   <script src="/components/jpanelmenu/jquery.jpanelmenu.js"></script>
   <script src="/components/gridster/dist/jquery.gridster.with-extras.js"></script>
-  <script src="/components/pnotify/pnotify.core.js"></script>
-  <script src="/components/pnotify/pnotify.buttons.js"></script>
-  <script src="/components/pnotify/pnotify.confirm.js"></script>
-  <script src="/components/pnotify/pnotify.nonblock.js"></script>
-  <script src="/components/pnotify/pnotify.desktop.js"></script>
-  <script src="/components/pnotify/pnotify.history.js"></script>
-  <script src="/components/pnotify/pnotify.callbacks.js"></script>
-  <script src="/components/pnotify/pnotify.reference.js"></script>
+  <script src="/components/pnotify/src/pnotify.core.js"></script>
+  <script src="/components/pnotify/src/pnotify.buttons.js"></script>
+  <script src="/components/pnotify/src/pnotify.confirm.js"></script>
+  <script src="/components/pnotify/src/pnotify.nonblock.js"></script>
+  <script src="/components/pnotify/src/pnotify.desktop.js"></script>
+  <script src="/components/pnotify/src/pnotify.history.js"></script>
+  <script src="/components/pnotify/src/pnotify.callbacks.js"></script>
+  <script src="/components/pnotify/src/pnotify.reference.js"></script>
   <script src="/components/clndr/src/clndr.js"></script>
   <script src="/components/flippy/jquery.flippy.js"></script>
   <script src="/components/CoolClock/coolclock.js"></script>
   <script src="/components/eonasdan-bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js"></script>
   <script src="/components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js"></script>
+  <script src="/components/seiyria-bootstrap-slider/dist/bootstrap-slider.min.js"></script>
   <script src="/js/internal/class.js"></script>
   <script src="/js/internal/cloud-base.js"></script>
   <script src="/js/internal/cloud-format.js"></script>
@@ -146,6 +150,7 @@
   <script src="/js/tiles/datetime-tiles.js"></script>
   <script src="/js/tiles/feed-tiles.js"></script>
   <script src="/js/tiles/map-tiles.js"></script>
+  <script src="/js/tiles/sessions-tiles.js"></script>
   <script src="/js/tiles/tasker-storage.js"></script>
   <script src="/js/tiles/tasker-tiles.js"></script>
   <script src="/js/tiles/webpage-tiles.js"></script>

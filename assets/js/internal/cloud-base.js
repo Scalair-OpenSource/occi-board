@@ -1,4 +1,5 @@
 /*global console:true*/
+/*global moment:true*/
 /*global _:true*/
 /*global root:true*/
 /*global module:true*/
@@ -25,7 +26,7 @@ if (typeof console === 'undefined') {
 
 /**
  * Namespace: cloud
- * This object contains all facilities to create CloudSystem® web app.
+ * This object contains all facilities to create Oiic dashboard web app.
  *
  * Dependencies:
  * jQuery - http://www.jquery.com/

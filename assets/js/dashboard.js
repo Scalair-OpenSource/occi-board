@@ -13,11 +13,12 @@ var Dashboard = function () {
   var $WIDGET_TRASH_ICON_TMPL = $('#widget-trash-icon-template').html();
   var DURATION_DASHBOARD_REFRESH_ANIMATION = 8000; // milliseconds
   var EDITOR_GRID_SCALE = 0.6; // Edition of layout reduce scale to 60% of original size
-  var REFRESH_DELAY = 2 * 1000; // Test tile refreshing every 2 seconds.
+  var REFRESH_DELAY = 10 * 1000; // Test tile refreshing every 2 seconds.
+  var REFRESH_DELAY_TIME = 2 * 1000;
   // var REFRESH_DELAY_KEEP_ALIVE = 60 * 10 * 1000; // Keep session alive.
 
   var loadingDashboardCountDown = 10; // 10 steps
-  var COUNT_DOWN_UNIT = 2000;           // of 2 seconds
+  var COUNT_DOWN_UNIT = 2000;         // of 2 seconds
   var tmplTileLoading;
   var loaded = true;
 
@@ -39,10 +40,6 @@ var Dashboard = function () {
   var isEditingLayout = false;
 
   var init = function () {
-    for (var i = 0; i < loadingDashboardCountDown; i++) {
-      $('#cloudsystem-loading').append('<i id="cloudsystem-loading-' + (loadingDashboardCountDown - i) + '" class="fa fa-cloud cloud-disabled"></i> ');
-    }
-
     /*
     * Hide controls before displaying anything
     */
@@ -408,7 +405,7 @@ var Dashboard = function () {
 
     dm.append('<legend>' + __('Themes:') + '</legend><div class="theme-chooser"></div>');
 
-    dm.append('<p class="centered"><a href="https://play.google.com/store/apps/details?id=fr.cloudsystem.vmmanager"><img alt="Get it on Google Play" src="https://developer.android.com/images/brand/fr_generic_rgb_wo_45.png" /></a></p>');
+    dm.append('<p class="centered"><a href="https://play.google.com/store/apps/details?id=###"><img alt="Get it on Google Play" src="https://developer.android.com/images/brand/fr_generic_rgb_wo_45.png" /></a></p>');
 
     $('#dashboard-menu-tiles').on('click', '.dashboard-menu-tile', function (ev) {
       ev.preventDefault();
@@ -611,7 +608,7 @@ var Dashboard = function () {
       * 2) Set its overflow to hidden or auto.
       */
       $('#' + id).find('.widget-scrollbar').mCustomScrollbar({
-        theme: 'cloudsystem',
+        theme: 'occi-scrollbar',
         //~ theme: 'noscrollbar',
         autoHideScrollbar: true,
         mouseWheel: true,
@@ -633,11 +630,7 @@ var Dashboard = function () {
     show();
     refreshTiles(true);
     updateTime();
-    // $('#dashboard-curtain').fadeOut(function () {
-    //     $('body').removeClass('body-curtain');
-    //     $('#dashboard-container').removeClass('hide');
-    // });
-    // // cloud.setInterval.call(this, updateTime, this.REFRESH_DELAY_TIME);
+    cloud.setInterval.call(this, updateTime, this.REFRESH_DELAY_TIME);
     // keepAlive();
   };
 
@@ -793,14 +786,8 @@ var Dashboard = function () {
   * A successful connexion MUST cancel this!
   */
   var testTimeOut = function () {
-    if ($('#cloudsystem-loading:visible').length === 0) {
-      return;
-    }
-
-    $('#cloudsystem-loading').find('#cloudsystem-loading-' + loadingDashboardCountDown).removeClass('cloud-disabled');
-
     if (loadingDashboardCountDown <= 0 && !loaded) {
-      cloud.notify.error(__('CloudSystem® dashboard server does not respond.'));
+      cloud.notify.error(__('Dashboard server does not respond.'));
       $('#loader-message').html(__('Dashboard not available!'));
     }
     else {

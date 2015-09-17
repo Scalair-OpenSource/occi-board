@@ -246,8 +246,8 @@ td.centered {
     opacity: 1;
     overflow: hidden;
     z-index: 2000;
-    background-color: @COLOR_CLOUDSYSTEM_TILE_BACKGROUND;
-    color: @COLOR_CLOUDSYSTEM_TILE_FOREGROUND;
+    background-color: @COLOR_OCCI_DASHBOARD_TILE_BACKGROUND;
+    color: @COLOR_OCCI_DASHBOARD_TILE_FOREGROUND;
     text-align: center;
 }
 
@@ -256,11 +256,11 @@ td.centered {
 }
 
 .slider-selection {
-    background: @COLOR_CLOUDSYSTEM_GREEN;
+    background: @COLOR_OCCI_DASHBOARD_2;
 }
 
 .slider-handle {
-    background: @COLOR_CLOUDSYSTEM_BLUE;
+    background: @COLOR_OCCI_DASHBOARD_1;
 }
 
 /* ----------------------------------------
@@ -292,8 +292,8 @@ div.modal-footer {
 }
 
 input, select {
-    color: @COLOR_CLOUDSYSTEM_BLUE;
-    border: 1px solid @COLOR_CLOUDSYSTEM_GRAY !important;
+    color: @COLOR_OCCI_DASHBOARD_1;
+    border: 1px solid @COLOR_OCCI_DASHBOARD_GRAY !important;
     border-radius: 0 !important;
 }
 
@@ -303,7 +303,7 @@ label {
 
 input[readonly] {
     border: 0 solid !important;
-    border-bottom: 1px solid @COLOR_CLOUDSYSTEM_GRAY !important;
+    border-bottom: 1px solid @COLOR_OCCI_DASHBOARD_GRAY !important;
 }
 
 span[role="status"][aria-live="polite"][class="select2-hidden-accessible"] {
@@ -335,7 +335,7 @@ span[role="status"][aria-live="polite"][class="select2-hidden-accessible"] {
     border: 0 !important;
     border-radius: 0 !important;
     box-shadow: none !important;
-    background-color: @COLOR_CLOUDSYSTEM_GREEN !important;
+    background-color: @COLOR_OCCI_DASHBOARD_2 !important;
     background-image: none !important;
 }
 
@@ -505,7 +505,7 @@ a[crud] {
 
 .zoom-icon:hover, .zoom-icon.selected {
     background-color: @COLOR_WHITE !important;
-    color: @COLOR_CLOUDSYSTEM_BLUE !important;
+    color: @COLOR_OCCI_DASHBOARD_1 !important;
 }
 
 .widget-title-background {
@@ -522,7 +522,7 @@ a[crud] {
 }
 
 .widget-title-background-alt {
-    color: @COLOR_CLOUDSYSTEM_BLUE;
+    color: @COLOR_OCCI_DASHBOARD_1;
     background: @COLOR_HEADER_BACKGROUND;
     /*
     background: #f5f5f5;
@@ -674,17 +674,17 @@ a[crud] {
 }
 
 .tile-cs-green {
-    background-color: @COLOR_CLOUDSYSTEM_GREEN !important;
-    color: @COLOR_CLOUDSYSTEM_BLUE !important;
+    background-color: @COLOR_OCCI_DASHBOARD_2 !important;
+    color: @COLOR_OCCI_DASHBOARD_1 !important;
 }
 
 .tile-cs-green-alt {
-    background-color: @COLOR_CLOUDSYSTEM_GREEN !important;
+    background-color: @COLOR_OCCI_DASHBOARD_2 !important;
     color: @COLOR_WHITE !important;
 }
 
 .tile-cs-blue {
-    background-color: @COLOR_CLOUDSYSTEM_BLUE !important;
+    background-color: @COLOR_OCCI_DASHBOARD_1 !important;
     color: @COLOR_WHITE !important;
 }
 
@@ -702,7 +702,7 @@ a[crud] {
 #graph-tooltip {
     position: absolute;
     display: none;
-    border: 1px solid @COLOR_CLOUDSYSTEM_BLUE;
+    border: 1px solid @COLOR_OCCI_DASHBOARD_1;
     padding: 2px;
     background-color: @COLOR_WHITE;
     opacity: 0.80;
@@ -724,7 +724,7 @@ div.tile {
     margin: 0;
     .full;
     .overflow-hidden;
-    border: 1px solid @COLOR_CLOUDSYSTEM_TILE_BORDER;
+    border: 1px solid @COLOR_OCCI_DASHBOARD_TILE_BORDER;
 }
 
 div.tile a {
@@ -740,7 +740,7 @@ div.tile .pagination {
     width: 42px;
     height: 46px;
     color: @COLOR_WHITE;
-    background: @COLOR_CLOUDSYSTEM_BLUE;
+    background: @COLOR_OCCI_DASHBOARD_1;
     padding-left: 6px;
     padding-top: 6px;
     border-right: 2px solid @COLOR_WHITE;
@@ -755,8 +755,8 @@ div.tile div.content {
 }
 
 .widget-form {
-    background: @COLOR_CLOUDSYSTEM_TILE_BACKGROUND;
-    color: @COLOR_CLOUDSYSTEM_TILE_FOREGROUND;
+    background: @COLOR_OCCI_DASHBOARD_TILE_BACKGROUND;
+    color: @COLOR_OCCI_DASHBOARD_TILE_FOREGROUND;
     padding: 8px;
 }
 
@@ -778,7 +778,7 @@ div.tile div.content {
 
 .tile-tabs {
     font-size: 0; /* Remove space between each children */
-    color: @COLOR_CLOUDSYSTEM_BLUE;
+    color: @COLOR_OCCI_DASHBOARD_1;
     .overflow-ellipsis;
 }
 
@@ -788,14 +788,14 @@ div.tile div.content {
     font-size: @FONT_SIZE_SMALL;
     display: inline-block;
     padding: 8px 6px;
-    background-color: @COLOR_CLOUDSYSTEM_TABS_BACKGROUND;
-    border-right: 1px solid @COLOR_CLOUDSYSTEM_TABS_BORDER_SELECTED;
+    background-color: @COLOR_OCCI_DASHBOARD_TABS_BACKGROUND;
+    border-right: 1px solid @COLOR_OCCI_DASHBOARD_TABS_BORDER_SELECTED;
     text-transform: uppercase;
 }
 
 .tile-tabs a.selected {
-    background-color: @COLOR_CLOUDSYSTEM_TABS_BACKGROUND_SELECTED;
-    border-right: 4px solid @COLOR_CLOUDSYSTEM_TABS_BORDER_SELECTED;
+    background-color: @COLOR_OCCI_DASHBOARD_TABS_BACKGROUND_SELECTED;
+    border-right: 4px solid @COLOR_OCCI_DASHBOARD_TABS_BORDER_SELECTED;
     font-weight: bold;
 }
 
@@ -805,14 +805,14 @@ div.tile div.content {
     font-size: @FONT_SIZE_SMALL;
     display: inline-block;
     padding: 2px 6px;
-    background-color: @COLOR_CLOUDSYSTEM_TABS_BACKGROUND;
-    border-right: 1px solid @COLOR_CLOUDSYSTEM_TABS_BORDER_SELECTED;
+    background-color: @COLOR_OCCI_DASHBOARD_TABS_BACKGROUND;
+    border-right: 1px solid @COLOR_OCCI_DASHBOARD_TABS_BORDER_SELECTED;
     text-transform: uppercase;
 }
 
 .tile-error-message {
     font-size: @FONT_SIZE_SMALL;
-    color: @COLOR_CLOUDSYSTEM_BLUE;
+    color: @COLOR_OCCI_DASHBOARD_1;
 }
 
 /*
@@ -822,13 +822,13 @@ div.tile div.content {
     color: @COLOR_BLACK;
 }
 .order-status-new {
-    color: @COLOR_CLOUDSYSTEM_BLUE;
+    color: @COLOR_OCCI_DASHBOARD_1;
 }
 .order-status-pending {
-    color: @COLOR_CLOUDSYSTEM_BLUE;
+    color: @COLOR_OCCI_DASHBOARD_1;
 }
 .order-status-complete {
-    color: @COLOR_CLOUDSYSTEM_GREEN;
+    color: @COLOR_OCCI_DASHBOARD_2;
 }
 .order-status-complete-partial {
     color: @COLOR_MANGO;
@@ -864,7 +864,7 @@ div.tile div.content {
 
 #user-form h5 {
     padding: 20px 0 0 0 !important;
-    border-bottom: 1px dotted @COLOR_CLOUDSYSTEM_GRAY_LIGHT;
+    border-bottom: 1px dotted @COLOR_OCCI_DASHBOARD_GRAY_LIGHT;
 }
 
 .help-block {
@@ -908,7 +908,7 @@ div.tile div.content {
 .product-new:after {
     font-family: "FontAwesome";
     content: "\f11d";
-    color: @COLOR_CLOUDSYSTEM_BLUE;
+    color: @COLOR_OCCI_DASHBOARD_1;
     padding-left: 2px;
 }
 
