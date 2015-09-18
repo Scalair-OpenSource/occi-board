@@ -777,11 +777,6 @@ if (typeof console === 'undefined') {
   };
 
   /*
-   * Disable AJAX caching. Especially for I.E. that is boring with that!
-   */
-  $.ajaxSetup({ cache: false });
-
-  /*
    * --- Module Definition ---
    *
    * We define a global variable "cloud".

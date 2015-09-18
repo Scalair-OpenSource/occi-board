@@ -648,7 +648,7 @@ var Dashboard = function () {
   var saveTiles = function (callback) {
 
     var data = {
-      _crsf: $OD.CSRF_TOKEN,
+      _csrf: $OD.CSRF_TOKEN,
       dashboard: {
         widgets: gridster.serialize(),
         fullscreen: isFullScreen

@@ -47,7 +47,7 @@
     <li class="task-item {task_cls}" data-task-id="{task_id}">
         <span class="icon-finished {task_cls}" data-task-id="{task_id}"> </span>
         <span class="due-date {due_date_cls}">{due_date} <i class="fa fa-long-arrow-right"></i></span>
-        <span rel="tooltip" title="{caption}">{caption} <a href='{url}' target='_task' class="{url_cls}"><i class="fa fa-external-link"></i></a></span>
+        <span data-task-id="{task_id}">{caption} <a href='{url}' target='_task' class="{url_cls}"><i class="fa fa-external-link"></i></a></span>
         <i class="{published_cls} fa fa-globe" rel="tooltip" title="<%= __('This task is published!') %>"></i>
     </li>
 </div>

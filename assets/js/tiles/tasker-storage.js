@@ -1,3 +1,4 @@
+/*global _:true*/
 /*global __:true*/
 /*global $OD:true*/
 
@@ -62,7 +63,7 @@ $OD.tiles.storage.Tasks = $OD.tiles.storage.Base.extend({
       type: 'POST',
       url: '/task',
       data: {
-        _crsf: $OD.CSRF_TOKEN,
+        _csrf: $OD.CSRF_TOKEN,
         caption: config.caption,
         url: config.url,
         due_date: config.due_date,
@@ -73,7 +74,7 @@ $OD.tiles.storage.Tasks = $OD.tiles.storage.Base.extend({
         if (data && data._id) {
           config.id = data._id;
         }
-        self.taskList.add(config, 0);
+        self.taskList.concat(config, 0);
         if (config.onSuccess) {
           config.onSuccess();
         }
@@ -101,18 +102,14 @@ $OD.tiles.storage.Tasks = $OD.tiles.storage.Base.extend({
       type: 'DELETE',
       url: '/task',
       data: {
+        _csrf: $OD.CSRF_TOKEN,
         id: config.id
       },
       success: function () {
-        var i = 0;
-        while (i < self.taskList.length) {
-          if (self.taskList[i].id === config.id) {
-            self.taskList.removeAt(i);
-          }
-          else {
-            i++;
-          }
-        }
+        _.remove(self.taskList, function (task) {
+          return task.id === config.id;
+        });
+
         if (config.onSuccess) {
           config.onSuccess();
         }
@@ -134,29 +131,16 @@ $OD.tiles.storage.Tasks = $OD.tiles.storage.Base.extend({
   delAllFinished: function (config) {
     var self = this;
 
-    $.ajax({
-      type: 'DELETE',
-      url: '/task/finished',
-      data: {},
-      success: function () {
-        var i = 0;
-        while (i < self.taskList.length) {
-          if (self.taskList[i].finished) {
-            self.taskList.removeAt(i);
-          }
-          else {
-            i++;
-          }
-        }
-        if (config.onSuccess) {
-          config.onSuccess();
-        }
-      },
-      error: function () {},
-      complete: function () {
-        self.registerExec();
+    var i = 0;
+    while (i < self.taskList.length) {
+      if (self.taskList[i].finished) {
+        self.del({
+          id: self.taskList[i].id,
+          onSuccess: config.onSuccess
+        });
       }
-    });
+      i++;
+    }
   },
 
   /**
@@ -174,9 +158,9 @@ $OD.tiles.storage.Tasks = $OD.tiles.storage.Base.extend({
     if (t) {
       $.ajax({
         type: 'PUT',
-        url: '/task',
+        url: '/task/' + config.id,
         data: {
-          id: config.id,
+          _csrf: $OD.CSRF_TOKEN,
           finished: config.finished
         },
         success: function () {
@@ -213,9 +197,9 @@ $OD.tiles.storage.Tasks = $OD.tiles.storage.Base.extend({
     if (t) {
       $.ajax({
         type: 'PUT',
-        url: '/task',
+        url: '/task/' + config.id,
         data: {
-          id: config.id,
+          _csrf: $OD.CSRF_TOKEN,
           caption: config.caption,
           due_date: config.due_date,
           published: config.published,
@@ -259,11 +243,12 @@ $OD.tiles.storage.Tasks = $OD.tiles.storage.Base.extend({
 
       $.ajax({
         type: 'GET',
-        url: '/task'
+        url: '/task',
+        tyoe: 'json'
       })
       .done(function (json) {
-        if (json && json.records) {
-          self.taskList = json.records;
+        if (json) {
+          self.taskList = json;
         }
 
         if (config.onSuccess) {

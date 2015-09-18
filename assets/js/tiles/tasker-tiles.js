@@ -66,7 +66,7 @@ $OD.tiles.classes.Tasker = $OD.tiles.classes.BasicTile.extend({
           finished: false,
           published: pub,
           onSuccess: function () {
-            self.redraw();
+            self.refresh();
           }
         });
       }
@@ -80,7 +80,7 @@ $OD.tiles.classes.Tasker = $OD.tiles.classes.BasicTile.extend({
 
       self.tasks.delAllFinished({
         onSuccess: function () {
-          self.redraw();
+          self.refresh();
         }
       });
     });
@@ -113,12 +113,12 @@ $OD.tiles.classes.Tasker = $OD.tiles.classes.BasicTile.extend({
       taskList += cloud.assign(self.tmplTask, {
         task_id: t.id,
         task_cls: t.finished ? 'task-finished' : '',
-        caption: t.caption,
+        caption: '<a href="#" data-type="text" task-id="' + t.id + '" task-due_date="' + (t.due_date ? moment(t.due_date).toISOString() : '') + '" task-published="' + t.published + '" task-finished="' + t.finished + '" task-url="' + (t.url || '') + '">' + t.caption + '</a>',
         tooltip: t.caption,
         url: t.url,
         url_cls: t.url && t.url.length > 0 ? '': 'hide',
         published_cls: t.published ? '': 'hide',
-        due_date: t.due_date ? moment(t.due_date).toLocaleDateString() : '',
+        due_date: t.due_date ? moment(t.due_date).format('ll') : '',
         due_date_cls: t.due_date ? '' : 'hide'
       });
     });
@@ -143,6 +143,21 @@ $OD.tiles.classes.Tasker = $OD.tiles.classes.BasicTile.extend({
       minDate: moment('2010-01-01'),
       showClear: true,
       showTodayButton: true
+    });
+
+    self.getjQueryEl().find('a[data-type]').editable({
+      type: 'text',
+      mode: 'inline',
+      success: function(response, newValue) {
+        self.tasks.update({
+          id: $(this).attr('task-id'),
+          caption: newValue,
+          due_date: $(this).attr('task-due_date') || null,
+          published: $(this).attr('task-published') || null,
+          finished: $(this).attr('task-finished') || null,
+          url: $(this).attr('task-url') || null
+        });
+      }
     });
 
     if (self.on.afterRefresh) {

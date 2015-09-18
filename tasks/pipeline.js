@@ -49,6 +49,8 @@ var jsFilesToInject = [
   '/components/clndr/src/clndr.js',
   '/components/flippy/jquery.flippy.js',
   '/components/CoolClock/coolclock.js',
+  '/components/bootstrap/dist/js/bootstrap.js',
+  '/components/x-editable/dist/bootstrap3-editable/js/bootstrap-editable.js',
   '/components/eonasdan-bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js',
   '/components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js',
   '/components/seiyria-bootstrap-slider/dist/bootstrap-slider.min.js',
