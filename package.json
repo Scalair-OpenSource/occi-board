@@ -1,9 +1,9 @@
 {
   "name": "occi-board",
   "private": true,
-  "version": "0.0.0",
-  "description": "a Sails application",
-  "keywords": [],
+  "version": "0.0.1",
+  "description": "Occiware Dashboard",
+  "keywords": [''],
   "dependencies": {
     "ejs": "~0.8.4",
     "grunt": "0.4.2",
@@ -34,6 +34,6 @@
     "type": "git",
     "url": "git://github.com/yar0d/occi-board.git"
   },
-  "author": "yar0d",
-  "license": ""
+  "author": "Daniel Coquette <dcoquette@scalair.fr>",
+  "license": "AGPL"
 }
