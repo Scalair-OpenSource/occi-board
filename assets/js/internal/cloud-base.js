@@ -125,6 +125,7 @@ if (typeof console === 'undefined') {
   var PASSWORD_ALLOWED_CHARS = lib.PASSWORD_ALLOWED_CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890abcdefghijklmnopqrstuvwxyz@_-+*&#$£€%!:;.?,<>(){}[]'.split('');
   var FLIP_DURATION = lib.FLIP_DURATION = 250; // Milliseconds
   var SLIDE_DURATION = lib.SLIDE_DURATION = 300; // Milliseconds
+  var FLIPBOX_DEPTH = 2; // See flippy component
 
   /*
    * Internal values

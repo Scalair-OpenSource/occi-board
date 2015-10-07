@@ -184,6 +184,7 @@ $OD.tiles.classes.WebpageSentry = $OD.tiles.classes.BasicTile.extend({
       self.allowRefresh = false; // Do not allow refresh
       cloud.loader.removeAll(self.getjQueryEl());
       self.getjQueryEl().find('.flipbox').flippy({
+        depth: 2.0,
         verso: cloud.assign(self.verso, { id: self.getId() }),
         direction: 'left',
         duration: cloud.FLIP_DURATION,

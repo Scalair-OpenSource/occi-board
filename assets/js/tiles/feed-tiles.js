@@ -131,6 +131,7 @@ $OD.tiles.classes.Feed = $OD.tiles.classes.BasicTile.extend({
 
       ev.preventDefault();
       self.getjQueryEl().find('.flipbox').flippy({
+        depth: 2.0,
         verso: self.verso,
         direction: 'left',
         noCSS: false,
