@@ -5,7 +5,7 @@ Occi board offers a frontend application using widgets paradygm. It's build with
 1. Clone repository
 1. Download dependencies
 ```
-$ cd occiboard
+$ cd occi-board
 $ bower install
 $ npm install
 ```

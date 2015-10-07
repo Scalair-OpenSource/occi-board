@@ -3,7 +3,11 @@
   "private": true,
   "version": "0.0.1",
   "description": "Occiware Dashboard",
-  "keywords": [''],
+  "keywords": [
+    "occi-board",
+    "occiware",
+    "scalair"
+  ],
   "dependencies": {
     "ejs": "~0.8.4",
     "grunt": "0.4.2",
